@@ -12,7 +12,7 @@ app = Flask(__name__)
 def asdfhellsdfsdfo_world():
     return "<p>BismiALLAH! Test</p>"
 # GET all passengers
-@app.route("/api/passengers", methods=["GET"])
+@app.route("/api/passengers")
 def getAllPassengers():
     payload = {}
     payload['passengers'] = []
@@ -150,6 +150,49 @@ def deletePassenger(id):
         )
     payload['query'] = query
     return jsonify(payload)
+
+
+
+def getP():
+    payload = {}
+    payload['passengers'] = []
+    tp = {}
+    name = request.args.get('name')
+    currPage = request.args.get('currPage')
+    pageSize = request.args.get('pageSize')
+    currPage = int(currPage) if currPage is not None else 1
+    pageSize = int(pageSize) if pageSize is not None else 10
+    tFrom = ((currPage -1 ) * pageSize)+1
+    tTo = tFrom + (pageSize-1)
+    query = """
+            SELECT * FROM 
+                (
+                    SELECT ID,
+                        ROW_NUMBER() OVER (ORDER By ID ASC) rn
+                    FROM Titanic_Table.Passenger
+                ) tmp
+            WHERE rn between {} and {}
+            ORDER By ID ASC
+            """.format(tFrom,tTo)
+    rs = iris.sql.exec(query)
+    for i in rs:
+        # We create an iris object
+        tp = iris.ref(1)
+        # We get the json in a string
+        iris.cls("Titanic.Table.Passenger")._OpenId(i[0])._JSONExportToString(tp)
+        # We normalize the string to get it in python
+        tp = iris.cls("%String").Normalize(tp)
+        # We load the string in a dict
+        tp = json.loads(tp)
+        # We add the id
+        tp['passengerId'] = i[0]
+        payload['passengers'].append(tp)
+    # Getting the total number of passengers
+    rs = iris.sql.exec("SELECT COUNT(*) FROM Titanic_Table.Passenger")
+    payload['total'] = rs.__next__()[0]
+    payload['query'] = query
+    return jsonify(payload)
+
 
 
 # ----------------------------------------------------------------
