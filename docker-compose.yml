@@ -1,7 +1,6 @@
-version: '3.7'
+version: '3.6'
 services:
   iris:
-    image: iris-python
     build:
       context: ./
       dockerfile : Dockerfile
@@ -9,22 +8,9 @@ services:
         - IRIS_PASSWORD=${IRIS_PASSWORD:-SYS}
     volumes:
       - ./:/irisdev/app/
-    command: -a "sh /opt/irisapp/server_start.sh"
-    environment:
-      - ISC_CPF_MERGE_FILE=/irisdev/app/merge.cpf
     ports:
     - 52775:52773
     - 51776:1972
     - 4040:8080
-    - 4041:8081
     - 8888:8888
-  gateway: 
-    image: containers.intersystems.com/intersystems/webgateway:2021.2.0.651.0
-    ports:
-      - "80:80"
-    restart: on-failure
-    volumes:
-      - ./misc/CSP.ini:/opt/webgateway/bin/CSP.ini
-      - ./misc/CSP.conf:/opt/webgateway/bin/CSP.conf
-    environment:
-      - ISC_CSP_CONF_FILE=/opt/webgateway/bin/CSP.conf
+    command: -a "sh /opt/irisapp/server_start.sh"

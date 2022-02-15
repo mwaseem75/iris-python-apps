@@ -8,7 +8,9 @@ app = Flask(__name__)
 # ----------------------------------------------------------------
 ### CRUD FOR TITANIC_TABLE.PASSENGER
 # ----------------------------------------------------------------
-
+@app.route("/")
+def asdfhellsdfsdfo_world():
+    return "<p>BismiALLAH! Test</p>"
 # GET all passengers
 @app.route("/api/passengers", methods=["GET"])
 def getAllPassengers():
@@ -155,4 +157,4 @@ def deletePassenger(id):
 # ----------------------------------------------------------------
 
 if __name__ == '__main__':
-    app.run('0.0.0.0', port = "8081")
+    app.run('0.0.0.0', port = "8080")

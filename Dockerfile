@@ -1,5 +1,4 @@
 ARG IMAGE=containers.intersystems.com/intersystems/irishealth-community:2021.2.0.651.0
-
 FROM $IMAGE
 
 # For non community version
