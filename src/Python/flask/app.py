@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, make_response
+from flask import Flask, jsonify, request, make_response, render_template
 from definitions.passenger import Passenger
 import json
 import iris
@@ -9,8 +9,11 @@ app = Flask(__name__)
 ### CRUD FOR TITANIC_TABLE.PASSENGER
 # ----------------------------------------------------------------
 @app.route("/")
-def asdfhellsdfsdfo_world():
-    return "<p>BismiALLAH! Test</p>"
+def index():
+    return render_template('index.html')
+
+
+
 # GET all passengers
 @app.route("/api/passengers")
 def getAllPassengers():
@@ -200,4 +203,4 @@ def getP():
 # ----------------------------------------------------------------
 
 if __name__ == '__main__':
-    app.run('0.0.0.0', port = "8080")
+    app.run('0.0.0.0', port = "8080", debug=True)
