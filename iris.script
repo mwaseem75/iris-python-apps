@@ -1,14 +1,19 @@
-    zn "%SYS"
+   
+    do $SYSTEM.OBJ.Load("/opt/irisapp/Installer.cls", "ck")
+    set sc = ##class(App.Installer).setup() 
+    zn "%SYS" 
     // Allow SuperUser/SYS
     Do ##class(Security.Users).UnExpireUserPasswords("*")
-
+    
     // Allow service callin for embbeded python
     do ##class(Security.Services).Get("%Service_CallIn",.prop)
     set prop("Enabled")=1
     set prop("AutheEnabled")=48
     do ##class(Security.Services).Modify("%Service_CallIn",.prop)
 
-
+    zn "INTEROP"
+    do $System.OBJ.LoadDir("/opt/irisapp/src/resultVer","cubk","*.cls",1)
+    
     // Install ZPM
     set $namespace="%SYS", name="DefaultSSL" do:'##class(Security.SSLConfigs).Exists(name) ##class(Security.SSLConfigs).Create(name) set url="https://pm.community.intersystems.com/packages/zpm/latest/installer" Do ##class(%Net.URLParser).Parse(url,.comp) set ht = ##class(%Net.HttpRequest).%New(), ht.Server = comp("host"), ht.Port = 443, ht.Https=1, ht.SSLConfiguration=name, st=ht.Get(comp("path")) quit:'st $System.Status.GetErrorText(st) set xml=##class(%File).TempFilename("xml"), tFile = ##class(%Stream.FileBinary).%New(), tFile.Filename = xml do tFile.CopyFromAndSave(ht.HttpResponse.Data) do ht.%Close(), $system.OBJ.Load(xml,"ck") do ##class(%File).Delete(xml)
 
@@ -20,4 +25,4 @@
     // Load Titanic data
     do ##class(community.csvgen).Generate("/opt/irisapp/misc/titanic.csv",,"Titanic.Table.Passenger")
 
-    h
+    do ##class(%EnsembleMgr).SetAutoStart("INTEROP", "resultVer.Production")

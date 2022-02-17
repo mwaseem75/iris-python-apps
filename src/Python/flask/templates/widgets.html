@@ -2,1293 +2,2318 @@
 
 {% block title %} Widgets {% endblock %} 
 
+<!-- Element injected in the BODY element -->
+{% block body_class %} {% endblock body_class %} 
+
 <!-- Specific Page CSS goes HERE  -->
-{% block stylesheets %}{% endblock stylesheets %}
+{% block stylesheets %}
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="/static/assets/plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/static/assets/css/adminlte.min.css">
+
+{% endblock stylesheets %}
 
 {% block content %}
 
-	<div class="content">
-		<div class="page-inner">
-			<!-- Card -->
-			<h4 class="page-title">Card</h4>
-			<div class="row">
-				<div class="col-sm-6 col-md-3">
-					<div class="card card-stats card-primary card-round">
-						<div class="card-body">
-							<div class="row">
-								<div class="col-5">
-									<div class="icon-big text-center">
-										<i class="flaticon-users"></i>
-									</div>
-								</div>
-								<div class="col-7 col-stats">
-									<div class="numbers">
-										<p class="card-category">Visitors</p>
-										<h4 class="card-title">1,294</h4>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-3">
-					<div class="card card-stats card-info card-round">
-						<div class="card-body">
-							<div class="row">
-								<div class="col-5">
-									<div class="icon-big text-center">
-										<i class="flaticon-interface-6"></i>
-									</div>
-								</div>
-								<div class="col-7 col-stats">
-									<div class="numbers">
-										<p class="card-category">Subscribers</p>
-										<h4 class="card-title">1303</h4>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-3">
-					<div class="card card-stats card-success card-round">
-						<div class="card-body ">
-							<div class="row">
-								<div class="col-5">
-									<div class="icon-big text-center">
-										<i class="flaticon-analytics"></i>
-									</div>
-								</div>
-								<div class="col-7 col-stats">
-									<div class="numbers">
-										<p class="card-category">Sales</p>
-										<h4 class="card-title">$ 1,345</h4>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-3">
-					<div class="card card-stats card-secondary card-round">
-						<div class="card-body ">
-							<div class="row">
-								<div class="col-5">
-									<div class="icon-big text-center">
-										<i class="flaticon-success"></i>
-									</div>
-								</div>
-								<div class="col-7 col-stats">
-									<div class="numbers">
-										<p class="card-category">Order</p>
-										<h4 class="card-title">576</h4>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- Card With Icon States Color -->
-			<div class="row">
-				<div class="col-sm-6 col-md-3">
-					<div class="card card-stats card-round">
-						<div class="card-body ">
-							<div class="row">
-								<div class="col-5">
-									<div class="icon-big text-center">
-										<i class="flaticon-chart-pie text-warning"></i>
-									</div>
-								</div>
-								<div class="col-7 col-stats">
-									<div class="numbers">
-										<p class="card-category">Number</p>
-										<h4 class="card-title">150GB</h4>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-3">
-					<div class="card card-stats card-round">
-						<div class="card-body ">
-							<div class="row">
-								<div class="col-5">
-									<div class="icon-big text-center">
-										<i class="flaticon-coins text-success"></i>
-									</div>
-								</div>
-								<div class="col-7 col-stats">
-									<div class="numbers">
-										<p class="card-category">Revenue</p>
-										<h4 class="card-title">$ 1,345</h4>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-3">
-					<div class="card card-stats card-round">
-						<div class="card-body">
-							<div class="row">
-								<div class="col-5">
-									<div class="icon-big text-center">
-										<i class="flaticon-error text-danger"></i>
-									</div>
-								</div>
-								<div class="col-7 col-stats">
-									<div class="numbers">
-										<p class="card-category">Errors</p>
-										<h4 class="card-title">23</h4>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-3">
-					<div class="card card-stats card-round">
-						<div class="card-body">
-							<div class="row">
-								<div class="col-5">
-									<div class="icon-big text-center">
-										<i class="flaticon-twitter text-primary"></i>
-									</div>
-								</div>
-								<div class="col-7 col-stats">
-									<div class="numbers">
-										<p class="card-category">Followers</p>
-										<h4 class="card-title">+45K</h4>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- Card With Icon States Background -->
-			<div class="row">
-				<div class="col-sm-6 col-md-3">
-					<div class="card card-stats card-round">
-						<div class="card-body ">
-							<div class="row align-items-center">
-								<div class="col-icon">
-									<div class="icon-big text-center icon-primary bubble-shadow-small">
-										<i class="flaticon-users"></i>
-									</div>
-								</div>
-								<div class="col col-stats ml-3 ml-sm-0">
-									<div class="numbers">
-										<p class="card-category">Visitors</p>
-										<h4 class="card-title">1,294</h4>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-3">
-					<div class="card card-stats card-round">
-						<div class="card-body">
-							<div class="row align-items-center">
-								<div class="col-icon">
-									<div class="icon-big text-center icon-info bubble-shadow-small">
-										<i class="flaticon-interface-6"></i>
-									</div>
-								</div>
-								<div class="col col-stats ml-3 ml-sm-0">
-									<div class="numbers">
-										<p class="card-category">Subscribers</p>
-										<h4 class="card-title">1303</h4>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-3">
-					<div class="card card-stats card-round">
-						<div class="card-body">
-							<div class="row align-items-center">
-								<div class="col-icon">
-									<div class="icon-big text-center icon-success bubble-shadow-small">
-										<i class="flaticon-graph"></i>
-									</div>
-								</div>
-								<div class="col col-stats ml-3 ml-sm-0">
-									<div class="numbers">
-										<p class="card-category">Sales</p>
-										<h4 class="card-title">$ 1,345</h4>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-3">
-					<div class="card card-stats card-round">
-						<div class="card-body">
-							<div class="row align-items-center">
-								<div class="col-icon">
-									<div class="icon-big text-center icon-secondary bubble-shadow-small">
-										<i class="flaticon-success"></i>
-									</div>
-								</div>
-								<div class="col col-stats ml-3 ml-sm-0">
-									<div class="numbers">
-										<p class="card-category">Order</p>
-										<h4 class="card-title">576</h4>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- Row Card No Padding -->
-			<div class="row row-card-no-pd">
-				<div class="col-sm-6 col-md-3">
-					<div class="card card-stats card-round">
-						<div class="card-body ">
-							<div class="row">
-								<div class="col-5">
-									<div class="icon-big text-center">
-										<i class="flaticon-chart-pie text-warning"></i>
-									</div>
-								</div>
-								<div class="col-7 col-stats">
-									<div class="numbers">
-										<p class="card-category">Number</p>
-										<h4 class="card-title">150GB</h4>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-3">
-					<div class="card card-stats card-round">
-						<div class="card-body ">
-							<div class="row">
-								<div class="col-5">
-									<div class="icon-big text-center">
-										<i class="flaticon-coins text-success"></i>
-									</div>
-								</div>
-								<div class="col-7 col-stats">
-									<div class="numbers">
-										<p class="card-category">Revenue</p>
-										<h4 class="card-title">$ 1,345</h4>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-3">
-					<div class="card card-stats card-round">
-						<div class="card-body">
-							<div class="row">
-								<div class="col-5">
-									<div class="icon-big text-center">
-										<i class="flaticon-error text-danger"></i>
-									</div>
-								</div>
-								<div class="col-7 col-stats">
-									<div class="numbers">
-										<p class="card-category">Errors</p>
-										<h4 class="card-title">23</h4>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-3">
-					<div class="card card-stats card-round">
-						<div class="card-body">
-							<div class="row">
-								<div class="col-5">
-									<div class="icon-big text-center">
-										<i class="flaticon-twitter text-primary"></i>
-									</div>
-								</div>
-								<div class="col-7 col-stats">
-									<div class="numbers">
-										<p class="card-category">Followers</p>
-										<h4 class="card-title">+45K</h4>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Widgets</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Widgets</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
 
-			<div class="row">
-				<div class="col-md-4">
-					<div class="card card-secondary">
-						<div class="card-body skew-shadow">
-							<h1>3,072</h1>
-							<h5 class="op-8">Total conversations</h5>
-							<div class="pull-right">
-								<h3 class="fw-bold op-8">88%</h3>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="card card-dark bg-secondary-gradient">
-						<div class="card-body bubble-shadow">
-							<h1>188</h1>
-							<h5 class="op-8">Total Sales</h5>
-							<div class="pull-right">
-								<h3 class="fw-bold op-8">25%</h3>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="card card-dark bg-secondary2">
-						<div class="card-body curves-shadow">
-							<h1>12</h1>
-							<h5 class="op-8">New Users</h5>
-							<div class="pull-right">
-								<h3 class="fw-bold op-8">70%</h3>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <h5 class="mb-2">Info Box</h5>
+        <div class="row">
+          <div class="col-md-3 col-sm-6 col-12">
+            <div class="info-box">
+              <span class="info-box-icon bg-info"><i class="far fa-envelope"></i></span>
 
-			<div class="row">
-				<div class="col-md-4">
-					<div class="card card-dark bg-secondary-gradient">
-						<div class="card-body skew-shadow">
-							<img src="/static/assets/img/visa.svg" height="12.5" alt="Visa Logo">
-							<h2 class="py-4 mb-0">1234 **** **** 5678</h2>
-							<div class="row">
-								<div class="col-8 pr-0">
-									<h3 class="fw-bold mb-1">Sultan Ghani</h3>
-									<div class="text-small text-uppercase fw-bold op-8">Card Holder</div>
-								</div>
-								<div class="col-4 pl-0 text-right">
-									<h3 class="fw-bold mb-1">4/26</h3>
-									<div class="text-small text-uppercase fw-bold op-8">Expired</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="card card-dark bg-secondary-gradient">
-						<div class="card-body bubble-shadow">
-							<img src="/static/assets/img/visa.svg" height="12.5" alt="Visa Logo">
-							<h2 class="py-4 mb-0">1234 **** **** 5678</h2>
-							<div class="row">
-								<div class="col-8 pr-0">
-									<h3 class="fw-bold mb-1">Sultan Ghani</h3>
-									<div class="text-small text-uppercase fw-bold op-8">Card Holder</div>
-								</div>
-								<div class="col-4 pl-0 text-right">
-									<h3 class="fw-bold mb-1">4/26</h3>
-									<div class="text-small text-uppercase fw-bold op-8">Expired</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="card card-dark bg-secondary-gradient">
-						<div class="card-body curves-shadow">
-							<img src="/static/assets/img/visa.svg" height="12.5" alt="Visa Logo">
-							<h2 class="py-4 mb-0">1234 **** **** 5678</h2>
-							<div class="row">
-								<div class="col-8 pr-0">
-									<h3 class="fw-bold mb-1">Sultan Ghani</h3>
-									<div class="text-small text-uppercase fw-bold op-8">Card Holder</div>
-								</div>
-								<div class="col-4 pl-0 text-right">
-									<h3 class="fw-bold mb-1">4/26</h3>
-									<div class="text-small text-uppercase fw-bold op-8">Expired</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+              <div class="info-box-content">
+                <span class="info-box-text">Messages</span>
+                <span class="info-box-number">1,410</span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-3 col-sm-6 col-12">
+            <div class="info-box">
+              <span class="info-box-icon bg-success"><i class="far fa-flag"></i></span>
 
-			<div class="row">
-				<div class="col-md-4">
-					<div class="card">
-						<div class="card-body pb-0">
-							<div class="h1 fw-bold float-right text-primary">+5%</div>
-							<h2 class="mb-2">17</h2>
-							<p class="text-muted">Users online</p>
-							<div class="pull-in sparkline-fix">
-								<div id="lineChart"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="card">
-						<div class="card-body pb-0">
-							<div class="h1 fw-bold float-right text-danger">-3%</div>
-							<h2 class="mb-2">27</h2>
-							<p class="text-muted">New Users</p>
-							<div class="pull-in sparkline-fix">
-								<div id="lineChart2"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="card">
-						<div class="card-body pb-0">
-							<div class="h1 fw-bold float-right text-warning">+7%</div>
-							<h2 class="mb-2">213</h2>
-							<p class="text-muted">Transactions</p>
-							<div class="pull-in sparkline-fix">
-								<div id="lineChart3"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+              <div class="info-box-content">
+                <span class="info-box-text">Bookmarks</span>
+                <span class="info-box-number">410</span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-3 col-sm-6 col-12">
+            <div class="info-box">
+              <span class="info-box-icon bg-warning"><i class="far fa-copy"></i></span>
 
-			<div class="row">
-				<div class="col-md-4">
-					<div class="card card-dark bg-primary-gradient">
-						<div class="card-body pb-0">
-							<div class="h1 fw-bold float-right">+5%</div>
-							<h2 class="mb-2">17</h2>
-							<p>Users online</p>
-							<div class="pull-in sparkline-fix chart-as-background">
-								<div id="lineChart4"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="card card-default">
-						<div class="card-body pb-0">
-							<div class="h1 fw-bold float-right">-3%</div>
-							<h2 class="mb-2">27</h2>
-							<p>New Users</p>
-							<div class="pull-in sparkline-fix chart-as-background">
-								<div id="lineChart5"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="card card-dark bg-success2">
-						<div class="card-body pb-0">
-							<div class="h1 fw-bold float-right">+7%</div>
-							<h2 class="mb-2">213</h2>
-							<p>Transactions</p>
-							<div class="pull-in sparkline-fix chart-as-background">
-								<div id="lineChart6"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+              <div class="info-box-content">
+                <span class="info-box-text">Uploads</span>
+                <span class="info-box-number">13,648</span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-3 col-sm-6 col-12">
+            <div class="info-box">
+              <span class="info-box-icon bg-danger"><i class="far fa-star"></i></span>
 
-			<div class="row">
-				<div class="col-12 col-sm-6 col-md-3">
-					<div class="card">
-						<div class="card-body">
-							<div class="d-flex justify-content-between">
-								<div>
-									<h5><b>Todays Income</b></h5>
-									<p class="text-muted">All Customs Value</p>
-								</div>
-								<h3 class="text-info fw-bold">$170</h3>
-							</div>
-							<div class="progress progress-sm">
-								<div class="progress-bar bg-info w-75" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-							</div>
-							<div class="d-flex justify-content-between mt-2">
-								<p class="text-muted mb-0">Change</p>
-								<p class="text-muted mb-0">75%</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-12 col-sm-6 col-md-3">
-					<div class="card">
-						<div class="card-body">
-							<div class="d-flex justify-content-between">
-								<div>
-									<h5><b>Total Revenue</b></h5>
-									<p class="text-muted">All Customs Value</p>
-								</div>
-								<h3 class="text-success fw-bold">$120</h3>
-							</div>
-							<div class="progress progress-sm">
-								<div class="progress-bar bg-success w-25" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-							</div>
-							<div class="d-flex justify-content-between mt-2">
-								<p class="text-muted mb-0">Change</p>
-								<p class="text-muted mb-0">25%</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-12 col-sm-6 col-md-3">
-					<div class="card">
-						<div class="card-body">
-							<div class="d-flex justify-content-between">
-								<div>
-									<h5><b>New Orders</b></h5>
-									<p class="text-muted">Fresh Order Amount</p>
-								</div>
-								<h3 class="text-danger fw-bold">15</h3>
-							</div>
-							<div class="progress progress-sm">
-								<div class="progress-bar bg-danger w-50" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-							</div>
-							<div class="d-flex justify-content-between mt-2">
-								<p class="text-muted mb-0">Change</p>
-								<p class="text-muted mb-0">50%</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-12 col-sm-6 col-md-3">
-					<div class="card">
-						<div class="card-body">
-							<div class="d-flex justify-content-between">
-								<div>
-									<h5><b>New Users</b></h5>
-									<p class="text-muted">Joined New User</p>
-								</div>
-								<h3 class="text-secondary fw-bold">12</h3>
-							</div>
-							<div class="progress progress-sm">
-								<div class="progress-bar bg-secondary w-25" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-							</div>
-							<div class="d-flex justify-content-between mt-2">
-								<p class="text-muted mb-0">Change</p>
-								<p class="text-muted mb-0">25%</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+              <div class="info-box-content">
+                <span class="info-box-text">Likes</span>
+                <span class="info-box-number">93,139</span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
 
-			<div class="row row-card-no-pd mt--2">
-				<div class="col-12 col-sm-6 col-md-3">
-					<div class="card">
-						<div class="card-body">
-							<div class="d-flex justify-content-between">
-								<div>
-									<h5><b>Todays Income</b></h5>
-									<p class="text-muted">All Customs Value</p>
-								</div>
-								<h3 class="text-info fw-bold">$170</h3>
-							</div>
-							<div class="progress progress-sm">
-								<div class="progress-bar bg-info w-75" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-							</div>
-							<div class="d-flex justify-content-between mt-2">
-								<p class="text-muted mb-0">Change</p>
-								<p class="text-muted mb-0">75%</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-12 col-sm-6 col-md-3">
-					<div class="card">
-						<div class="card-body">
-							<div class="d-flex justify-content-between">
-								<div>
-									<h5><b>Total Revenue</b></h5>
-									<p class="text-muted">All Customs Value</p>
-								</div>
-								<h3 class="text-success fw-bold">$120</h3>
-							</div>
-							<div class="progress progress-sm">
-								<div class="progress-bar bg-success w-25" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-							</div>
-							<div class="d-flex justify-content-between mt-2">
-								<p class="text-muted mb-0">Change</p>
-								<p class="text-muted mb-0">25%</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-12 col-sm-6 col-md-3">
-					<div class="card">
-						<div class="card-body">
-							<div class="d-flex justify-content-between">
-								<div>
-									<h5><b>New Orders</b></h5>
-									<p class="text-muted">Fresh Order Amount</p>
-								</div>
-								<h3 class="text-danger fw-bold">15</h3>
-							</div>
-							<div class="progress progress-sm">
-								<div class="progress-bar bg-danger w-50" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-							</div>
-							<div class="d-flex justify-content-between mt-2">
-								<p class="text-muted mb-0">Change</p>
-								<p class="text-muted mb-0">50%</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-12 col-sm-6 col-md-3">
-					<div class="card">
-						<div class="card-body">
-							<div class="d-flex justify-content-between">
-								<div>
-									<h5><b>New Users</b></h5>
-									<p class="text-muted">Joined New User</p>
-								</div>
-								<h3 class="text-secondary fw-bold">12</h3>
-							</div>
-							<div class="progress progress-sm">
-								<div class="progress-bar bg-secondary w-25" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-							</div>
-							<div class="d-flex justify-content-between mt-2">
-								<p class="text-muted mb-0">Change</p>
-								<p class="text-muted mb-0">25%</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+        <!-- =========================================================== -->
+        <h5 class="mb-2">Info Box With Custom Shadows <small><i>Using Bootstrap's Shadow Utility</i></small></h5>
+        <div class="row">
+          <div class="col-md-3 col-sm-6 col-12">
+            <div class="info-box shadow-none">
+              <span class="info-box-icon bg-info"><i class="far fa-envelope"></i></span>
 
-			<div class="row">
-				<div class="col-6 col-sm-4 col-lg-2">
-					<div class="card">
-						<div class="card-body p-3 text-center">
-							<div class="text-right text-success">
-								6%
-								<i class="fa fa-chevron-up"></i>
-							</div>
-							<div class="h1 m-0">43</div>
-							<div class="text-muted mb-3">New Tickets</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-6 col-sm-4 col-lg-2">
-					<div class="card">
-						<div class="card-body p-3 text-center">
-							<div class="text-right text-danger">
-								-3%
-								<i class="fa fa-chevron-down"></i>
-							</div>
-							<div class="h1 m-0">17</div>
-							<div class="text-muted mb-3">Closed Today</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-6 col-sm-4 col-lg-2">
-					<div class="card">
-						<div class="card-body p-3 text-center">
-							<div class="text-right text-success">
-								9%
-								<i class="fa fa-chevron-up"></i>
-							</div>
-							<div class="h1 m-0">7</div>
-							<div class="text-muted mb-3">New Replies</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-6 col-sm-4 col-lg-2">
-					<div class="card">
-						<div class="card-body p-3 text-center">
-							<div class="text-right text-success">
-								3%
-								<i class="fa fa-chevron-up"></i>
-							</div>
-							<div class="h1 m-0">27.3K</div>
-							<div class="text-muted mb-3">Followers</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-6 col-sm-4 col-lg-2">
-					<div class="card">
-						<div class="card-body p-3 text-center">
-							<div class="text-right text-danger">
-								-2%
-								<i class="fa fa-chevron-down"></i>
-							</div>
-							<div class="h1 m-0">$95</div>
-							<div class="text-muted mb-3">Daily Earnings</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-6 col-sm-4 col-lg-2">
-					<div class="card">
-						<div class="card-body p-3 text-center">
-							<div class="text-right text-danger">
-								-1%
-								<i class="fa fa-chevron-down"></i>
-							</div>
-							<div class="h1 m-0">621</div>
-							<div class="text-muted mb-3">Products</div>
-						</div>
-					</div>
-				</div>
-			</div>
+              <div class="info-box-content">
+                <span class="info-box-text">Custom Shadows - None</span>
+                <span class="info-box-number"></span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-3 col-sm-6 col-12">
+            <div class="info-box shadow-sm">
+              <span class="info-box-icon bg-success"><i class="far fa-flag"></i></span>
 
-			<div class="row">
-				<div class="col-sm-6 col-lg-3">
-					<div class="card p-3">
-						<div class="d-flex align-items-center">
-							<span class="stamp stamp-md bg-secondary mr-3">
-								<i class="fa fa-dollar-sign"></i>
-							</span>
-							<div>
-								<h5 class="mb-1"><b><a href="#">132 <small>Sales</small></a></b></h5>
-								<small class="text-muted">12 waiting payments</small>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-lg-3">
-					<div class="card p-3">
-						<div class="d-flex align-items-center">
-							<span class="stamp stamp-md bg-success mr-3">
-								<i class="fa fa-shopping-cart"></i>
-							</span>
-							<div>
-								<h5 class="mb-1"><b><a href="#">78 <small>Orders</small></a></b></h5>
-								<small class="text-muted">32 shipped</small>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-lg-3">
-					<div class="card p-3">
-						<div class="d-flex align-items-center">
-							<span class="stamp stamp-md bg-danger mr-3">
-								<i class="fa fa-users"></i>
-							</span>
-							<div>
-								<h5 class="mb-1"><b><a href="#">1,352 <small>Members</small></a></b></h5>
-								<small class="text-muted">163 registered today</small>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-lg-3">
-					<div class="card p-3">
-						<div class="d-flex align-items-center">
-							<span class="stamp stamp-md bg-warning mr-3">
-								<i class="fa fa-comment-alt"></i>
-							</span>
-							<div>
-								<h5 class="mb-1"><b><a href="#">132 <small>Comments</small></a></b></h5>
-								<small class="text-muted">16 waiting</small>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+              <div class="info-box-content">
+                <span class="info-box-text">Custom Shadows - Small</span>
+                <span class="info-box-number"></span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-3 col-sm-6 col-12">
+            <div class="info-box shadow">
+              <span class="info-box-icon bg-warning"><i class="far fa-copy"></i></span>
 
-			<!-- TimeLine -->
-			<h4 class="page-title">Timeline</h4>
-			<div class="row">
-				<div class="col-md-12">
-					
-					<ul class="timeline">
-						<li>
-							<div class="timeline-badge"><i class="flaticon-message"></i></div>
-							<div class="timeline-panel">
-								<div class="timeline-heading">
-									<h4 class="timeline-title">Mussum ipsum cacilds</h4>
-									<p><small class="text-muted"><i class="flaticon-message"></i> 11 hours ago via Twitter</small></p>
-								</div>
-								<div class="timeline-body">
-									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-								</div>
-							</div>
-						</li>
-						<li class="timeline-inverted">
-							<div class="timeline-badge warning"><i class="flaticon-alarm-1"></i></div>
-							<div class="timeline-panel">
-								<div class="timeline-heading">
-									<h4 class="timeline-title">Mussum ipsum cacilds</h4>
-								</div>
-								<div class="timeline-body">
-									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="timeline-badge danger"><i class="flaticon-error"></i></div>
-							<div class="timeline-panel">
-								<div class="timeline-heading">
-									<h4 class="timeline-title">Mussum ipsum cacilds</h4>
-								</div>
-								<div class="timeline-body">
-									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-								</div>
-							</div>
-						</li>
-						<li class="timeline-inverted">
-							<div class="timeline-panel">
-								<div class="timeline-heading">
-									<h4 class="timeline-title">Mussum ipsum cacilds</h4>
-								</div>
-								<div class="timeline-body">
-									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="timeline-badge info"><i class="flaticon-price-tag"></i></div>
-							<div class="timeline-panel">
-								<div class="timeline-heading">
-									<h4 class="timeline-title">Mussum ipsum cacilds</h4>
-								</div>
-								<div class="timeline-body">
-									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-									<hr>
-									<div class="btn-group dropdown">
-										<button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
-											<span class="btn-label">
-												<i class="fa fa-cog"></i>
-											</span>
-										</button>
-										<ul class="dropdown-menu" role="menu">
-											<li>
-												<a class="dropdown-item" href="#">Action</a>
-												<a class="dropdown-item" href="#">Another action</a>
-												<div class="dropdown-divider"></div>
-												<a class="dropdown-item" href="#">Something else here</a>
-											</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="timeline-panel">
-								<div class="timeline-heading">
-									<h4 class="timeline-title">Mussum ipsum cacilds</h4>
-								</div>
-								<div class="timeline-body">
-									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-								</div>
-							</div>
-						</li>
-						<li class="timeline-inverted">
-							<div class="timeline-badge success"><i class="flaticon-credit-card-1"></i></div>
-							<div class="timeline-panel">
-								<div class="timeline-heading">
-									<h4 class="timeline-title">Mussum ipsum cacilds</h4>
-								</div>
-								<div class="timeline-body">
-									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-								</div>
-							</div>
-						</li>
-					</ul>
-				</div>
-			</div>
+              <div class="info-box-content">
+                <span class="info-box-text">Custom Shadows - Regular</span>
+                <span class="info-box-number"></span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-3 col-sm-6 col-12">
+            <div class="info-box shadow-lg">
+              <span class="info-box-icon bg-danger"><i class="far fa-star"></i></span>
 
-			<!-- Pricing -->
-			<h4 class="page-title">Pricing</h4>
-			<div class="row justify-content-center align-items-center mb-1">
-				<div class="col-md-3 pl-md-0">
-					<div class="card card-pricing">
-						<div class="card-header">
-							<h4 class="card-title">Basic</h4>
-							<div class="card-price">
-								<span class="price">$25</span>
-								<span class="text">/mo</span>
-							</div>
-						</div>
-						<div class="card-body">
-							<ul class="specification-list">
-								<li>
-									<span class="name-specification">Customizer</span>
-									<span class="status-specification">14 days trial</span>
-								</li>
-								<li>
-									<span class="name-specification">Chat History</span>
-									<span class="status-specification">No</span>
-								</li>
-								<li>
-									<span class="name-specification">Statistics</span>
-									<span class="status-specification">14 days trial</span>
-								</li>
-								<li>
-									<span class="name-specification">Support</span>
-									<span class="status-specification">Yes</span>
-								</li>
-								<li>
-									<span class="name-specification">Live Support</span>
-									<span class="status-specification">No</span>
-								</li>
-							</ul>
-						</div>
-						<div class="card-footer">
-							<button class="btn btn-primary btn-block"><b>Get Started</b></button>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 pl-md-0 pr-md-0">
-					<div class="card card-pricing card-pricing-focus card-primary">
-						<div class="card-header">
-							<h4 class="card-title">Professional</h4>
-							<div class="card-price">
-								<span class="price">$35</span>
-								<span class="text">/mo</span>
-							</div>
-						</div>
-						<div class="card-body">
-							<ul class="specification-list">
-								<li>
-									<span class="name-specification">Customizer</span>
-									<span class="status-specification">Yes</span>
-								</li>
-								<li>
-									<span class="name-specification">Chat History</span>
-									<span class="status-specification">3 Month</span>
-								</li>
-								<li>
-									<span class="name-specification">Statistics</span>
-									<span class="status-specification">3 Month</span>
-								</li>
-								<li>
-									<span class="name-specification">Support</span>
-									<span class="status-specification">Yes</span>
-								</li>
-								<li>
-									<span class="name-specification">Live Support</span>
-									<span class="status-specification">Yes</span>
-								</li>
-							</ul>
-						</div>
-						<div class="card-footer">
-							<button class="btn btn-light btn-block"><b>Get Started</b></button>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 pr-md-0">
-					<div class="card card-pricing">
-						<div class="card-header">
-							<h4 class="card-title">Team</h4>
-							<div class="card-price">
-								<span class="price">$75</span>
-								<span class="text">/mo</span>
-							</div>
-						</div>
-						<div class="card-body">
-							<ul class="specification-list">
-								<li>
-									<span class="name-specification">Customizer</span>
-									<span class="status-specification">Yes</span>
-								</li>
-								<li>
-									<span class="name-specification">Chat History</span>
-									<span class="status-specification">1 Year</span>
-								</li>
-								<li>
-									<span class="name-specification">Statistics</span>
-									<span class="status-specification">1 Year</span>
-								</li>
-								<li>
-									<span class="name-specification">Support</span>
-									<span class="status-specification">Yes</span>
-								</li>
-								<li>
-									<span class="name-specification">Live Support</span>
-									<span class="status-specification">Yes</span>
-								</li>
-							</ul>
-						</div>
-						<div class="card-footer">
-							<button class="btn btn-primary btn-block"><b>Get Started</b></button>
-						</div>
-					</div>
-				</div>
-			</div>
+              <div class="info-box-content">
+                <span class="info-box-text">Custom Shadows - Large</span>
+                <span class="info-box-number"></span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
 
-			<h4 class="page-title">Pricing 2</h4>
-			<div class="row justify-content-center align-items-center mb-5">
-				<div class="col-md-3 pl-md-0">
-					<div class="card-pricing2 card-success">
-						<div class="pricing-header">
-							<h3 class="fw-bold">Standard</h3>
-							<span class="sub-title">Lorem ipsum</span>
-						</div>
-						<div class="price-value">
-							<div class="value">
-								<span class="currency">$</span>
-								<span class="amount">10.<span>99</span></span>
-								<span class="month">/month</span>
-							</div>
-						</div>
-						<ul class="pricing-content">
-							<li>50GB Disk Space</li>
-							<li>50 Email Accounts</li>
-							<li>50GB Monthly Bandwidth</li>
-							<li class="disable">10 Subdomains</li>
-							<li class="disable">15 Domains</li>
-						</ul>
-						<a href="#" class="btn btn-success btn-border btn-lg w-75 fw-bold mb-3">Sign up</a>
-					</div>
-				</div>
-				<div class="col-md-3 pl-md-0 pr-md-0">
-					<div class="card-pricing2 card-primary">
-						<div class="pricing-header">
-							<h3 class="fw-bold">Business</h3>
-							<span class="sub-title">Lorem ipsum</span>
-						</div>
-						<div class="price-value">
-							<div class="value">
-								<span class="currency">$</span>
-								<span class="amount">20.<span>99</span></span>
-								<span class="month">/month</span>
-							</div>
-						</div>
-						<ul class="pricing-content">
-							<li>60GB Disk Space</li>
-							<li>60 Email Accounts</li>
-							<li>60GB Monthly Bandwidth</li>
-							<li>15 Subdomains</li>
-							<li class="disable">20 Domains</li>
-						</ul>
-						<a href="#" class="btn btn-primary btn-border btn-lg w-75 fw-bold mb-3">Sign up</a>
-					</div>
-				</div>
-				<div class="col-md-3 pr-md-0">
-					<div class="card-pricing2 card-secondary">
-						<div class="pricing-header">
-							<h3 class="fw-bold">Premium</h3>
-							<span class="sub-title">Lorem ipsum</span>
-						</div>
-						<div class="price-value">
-							<div class="value">
-								<span class="currency">$</span>
-								<span class="amount">30.<span>99</span></span>
-								<span class="month">/month</span>
-							</div>
-						</div>
-						<ul class="pricing-content">
-							<li>70GB Disk Space</li>
-							<li>70 Email Accounts</li>
-							<li>70GB Monthly Bandwidth</li>
-							<li>20 Subdomains</li>
-							<li>25 Domains</li>
-						</ul>
-						<a href="#" class="btn btn-secondary btn-border btn-lg w-75 fw-bold mb-3">Sign up</a>
-					</div>
-				</div>
-			</div>
+        <!-- =========================================================== -->
+        <h5 class="mt-4 mb-2">Info Box With <code>bg-*</code></h5>
+        <div class="row">
+          <div class="col-md-3 col-sm-6 col-12">
+            <div class="info-box bg-info">
+              <span class="info-box-icon"><i class="far fa-bookmark"></i></span>
 
-			<!-- Customized Card -->
-			<h4 class="page-title">Customized Card</h4>
-			<div class="row">
-				<div class="col-md-4">
-					<div class="card card-info card-annoucement card-round">
-						<div class="card-body text-center">
-							<div class="card-opening">Welcome Rian,</div>
-							<div class="card-desc">
-								Congrats and best wishes for success in your brand new life!
-								I knew that you would do this!
-							</div>
-							<div class="card-detail">
-								<div class="btn btn-light btn-rounded">View Detail</div>
-							</div>
-						</div>
-					</div>
-					<div class="card card-round">
-						<div class="card-body">
-							<div class="card-title fw-mediumbold">Suggested People</div>
-							<div class="card-list">
-								<div class="item-list">
-									<div class="avatar">
-										<img src="/static/assets/img/jm_denis.jpg" alt="..." class="avatar-img rounded-circle">
-									</div>
-									<div class="info-user ml-3">
-										<div class="username">Jimmy Denis</div>
-										<div class="status">Graphic Designer</div>
-									</div>
-									<button class="btn btn-icon btn-primary btn-round btn-xs">
-										<i class="fa fa-plus"></i>
-									</button>
-								</div>
-								<div class="item-list">
-									<div class="avatar">
-										<img src="/static/assets/img/chadengle.jpg" alt="..." class="avatar-img rounded-circle">
-									</div>
-									<div class="info-user ml-3">
-										<div class="username">Chad</div>
-										<div class="status">CEO Zeleaf</div>
-									</div>
-									<button class="btn btn-icon btn-primary btn-round btn-xs">
-										<i class="fa fa-plus"></i>
-									</button>
-								</div>
-								<div class="item-list">
-									<div class="avatar">
-										<img src="/static/assets/img/talha.jpg" alt="..." class="avatar-img rounded-circle">
-									</div>
-									<div class="info-user ml-3">
-										<div class="username">Talha</div>
-										<div class="status">Front End Designer</div>
-									</div>
-									<button class="btn btn-icon btn-primary btn-round btn-xs">
-										<i class="fa fa-plus"></i>
-									</button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="card card-post card-round">
-						<img class="card-img-top" src="/static/assets/img/blogpost.jpg" alt="Card image cap">
-						<div class="card-body">
-							<div class="d-flex">
-								<div class="avatar">
-									<img src="/static/assets/img/profile2.jpg" alt="..." class="avatar-img rounded-circle">
-								</div>
-								<div class="info-post ml-2">
-									<p class="username">Joko Subianto</p>
-									<p class="date text-muted">20 Jan 18</p>
-								</div>
-							</div>
-							<div class="separator-solid"></div>
-							<p class="card-category text-info mb-1"><a href="#">Design</a></p>
-							<h3 class="card-title">
-								<a href="#">
-									Best Design Resources This Week
-								</a>
-							</h3>
-							<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-							<a href="#" class="btn btn-primary btn-rounded btn-sm">Read More</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="card card-profile">
-						<div class="card-header" style="background-image: url('/static/assets/img/blogpost.jpg')">
-							<div class="profile-picture">
-								<div class="avatar avatar-xl">
-									<img src="/static/assets/img/profile.jpg" alt="..." class="avatar-img rounded-circle">
-								</div>
-							</div>
-						</div>
-						<div class="card-body">
-							<div class="user-profile text-center">
-								<div class="name">Hizrian, 19</div>
-								<div class="job">Frontend Developer</div>
-								<div class="desc">A man who hates loneliness</div>
-								<div class="social-media">
-									<a class="btn btn-info btn-twitter btn-sm btn-link" href="#"> 
-										<span class="btn-label just-icon"><i class="flaticon-twitter"></i> </span>
-									</a>
-									<a class="btn btn-danger btn-sm btn-link" rel="publisher" href="#"> 
-										<span class="btn-label just-icon"><i class="flaticon-google-plus"></i> </span> 
-									</a>
-									<a class="btn btn-primary btn-sm btn-link" rel="publisher" href="#"> 
-										<span class="btn-label just-icon"><i class="flaticon-facebook"></i> </span> 
-									</a>
-									<a class="btn btn-danger btn-sm btn-link" rel="publisher" href="#"> 
-										<span class="btn-label just-icon"><i class="flaticon-dribbble"></i> </span> 
-									</a>
-								</div>
-								<div class="view-profile">
-									<a href="#" class="btn btn-secondary btn-block">View Full Profile</a>
-								</div>
-							</div>
-						</div>
-						<div class="card-footer">
-							<div class="row user-stats text-center">
-								<div class="col">
-									<div class="number">125</div>
-									<div class="title">Post</div>
-								</div>
-								<div class="col">
-									<div class="number">25K</div>
-									<div class="title">Followers</div>
-								</div>
-								<div class="col">
-									<div class="number">134</div>
-									<div class="title">Following</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+              <div class="info-box-content">
+                <span class="info-box-text">Bookmarks</span>
+                <span class="info-box-number">41,410</span>
+
+                <div class="progress">
+                  <div class="progress-bar" style="width: 70%"></div>
+                </div>
+                <span class="progress-description">
+                  70% Increase in 30 Days
+                </span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-3 col-sm-6 col-12">
+            <div class="info-box bg-success">
+              <span class="info-box-icon"><i class="far fa-thumbs-up"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Likes</span>
+                <span class="info-box-number">41,410</span>
+
+                <div class="progress">
+                  <div class="progress-bar" style="width: 70%"></div>
+                </div>
+                <span class="progress-description">
+                  70% Increase in 30 Days
+                </span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-3 col-sm-6 col-12">
+            <div class="info-box bg-warning">
+              <span class="info-box-icon"><i class="far fa-calendar-alt"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Events</span>
+                <span class="info-box-number">41,410</span>
+
+                <div class="progress">
+                  <div class="progress-bar" style="width: 70%"></div>
+                </div>
+                <span class="progress-description">
+                  70% Increase in 30 Days
+                </span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-3 col-sm-6 col-12">
+            <div class="info-box bg-danger">
+              <span class="info-box-icon"><i class="fas fa-comments"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Comments</span>
+                <span class="info-box-number">41,410</span>
+
+                <div class="progress">
+                  <div class="progress-bar" style="width: 70%"></div>
+                </div>
+                <span class="progress-description">
+                  70% Increase in 30 Days
+                </span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+
+        <!-- =========================================================== -->
+        <h5 class="mt-4 mb-2">Info Box With <code>bg-gradient-*</code></h5>
+        <div class="row">
+          <div class="col-md-3 col-sm-6 col-12">
+            <div class="info-box bg-gradient-info">
+              <span class="info-box-icon"><i class="far fa-bookmark"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Bookmarks</span>
+                <span class="info-box-number">41,410</span>
+
+                <div class="progress">
+                  <div class="progress-bar" style="width: 70%"></div>
+                </div>
+                <span class="progress-description">
+                  70% Increase in 30 Days
+                </span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-3 col-sm-6 col-12">
+            <div class="info-box bg-gradient-success">
+              <span class="info-box-icon"><i class="far fa-thumbs-up"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Likes</span>
+                <span class="info-box-number">41,410</span>
+
+                <div class="progress">
+                  <div class="progress-bar" style="width: 70%"></div>
+                </div>
+                <span class="progress-description">
+                  70% Increase in 30 Days
+                </span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-3 col-sm-6 col-12">
+            <div class="info-box bg-gradient-warning">
+              <span class="info-box-icon"><i class="far fa-calendar-alt"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Events</span>
+                <span class="info-box-number">41,410</span>
+
+                <div class="progress">
+                  <div class="progress-bar" style="width: 70%"></div>
+                </div>
+                <span class="progress-description">
+                  70% Increase in 30 Days
+                </span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-3 col-sm-6 col-12">
+            <div class="info-box bg-gradient-danger">
+              <span class="info-box-icon"><i class="fas fa-comments"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Comments</span>
+                <span class="info-box-number">41,410</span>
+
+                <div class="progress">
+                  <div class="progress-bar" style="width: 70%"></div>
+                </div>
+                <span class="progress-description">
+                  70% Increase in 30 Days
+                </span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+
+        <!-- =========================================================== -->
+
+        <!-- Small Box (Stat card) -->
+        <h5 class="mb-2 mt-4">Small Box</h5>
+        <div class="row">
+          <div class="col-lg-3 col-6">
+            <!-- small card -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3>150</h3>
+
+                <p>New Orders</p>
+              </div>
+              <div class="icon">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+              <a href="#" class="small-box-footer">
+                More info <i class="fas fa-arrow-circle-right"></i>
+              </a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small card -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3>53<sup style="font-size: 20px">%</sup></h3>
+
+                <p>Bounce Rate</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <a href="#" class="small-box-footer">
+                More info <i class="fas fa-arrow-circle-right"></i>
+              </a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small card -->
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>44</h3>
+
+                <p>User Registrations</p>
+              </div>
+              <div class="icon">
+                <i class="fas fa-user-plus"></i>
+              </div>
+              <a href="#" class="small-box-footer">
+                More info <i class="fas fa-arrow-circle-right"></i>
+              </a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small card -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <h3>65</h3>
+
+                <p>Unique Visitors</p>
+              </div>
+              <div class="icon">
+                <i class="fas fa-chart-pie"></i>
+              </div>
+              <a href="#" class="small-box-footer">
+                More info <i class="fas fa-arrow-circle-right"></i>
+              </a>
+            </div>
+          </div>
+          <!-- ./col -->
+        </div>
+        <!-- /.row -->
+
+        <!-- Small Box (Stat card) -->
+        <div class="row">
+          <div class="col-lg-3 col-6">
+            <!-- small card -->
+            <div class="small-box bg-info">
+              <!-- Loading (remove the following to stop the loading)-->
+              <div class="overlay">
+                <i class="fas fa-3x fa-sync-alt"></i>
+              </div>
+              <!-- end loading -->
+              <div class="inner">
+                <h3>150</h3>
+
+                <p>New Orders</p>
+              </div>
+              <div class="icon">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+              <a href="#" class="small-box-footer">
+                More info <i class="fas fa-arrow-circle-right"></i>
+              </a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small card -->
+            <div class="small-box bg-success">
+              <!-- Loading (remove the following to stop the loading)-->
+              <div class="overlay dark">
+                <i class="fas fa-3x fa-sync-alt"></i>
+              </div>
+              <!-- end loading -->
+              <div class="inner">
+                <h3>53<sup style="font-size: 20px">%</sup></h3>
+
+                <p>Bounce Rate</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <a href="#" class="small-box-footer">
+                More info <i class="fas fa-arrow-circle-right"></i>
+              </a>
+            </div>
+          </div>
+          <!-- ./col -->
+        </div>
+        <!-- /.row -->
+
+        <!-- =========================================================== -->
+        <h4 class="mb-2 mt-4">Cards</h4>
+        <h5 class="mb-2">Abilities</h5>
+        <div class="row">
+          <div class="col-md-3">
+            <div class="card card-primary collapsed-card">
+              <div class="card-header">
+                <h3 class="card-title">Expandable</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
+                  </button>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                The body of the card
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-3">
+            <div class="card card-success">
+              <div class="card-header">
+                <h3 class="card-title">Collapsable</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                  </button>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                The body of the card
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-3">
+            <div class="card card-warning">
+              <div class="card-header">
+                <h3 class="card-title">Removable</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i>
+                  </button>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                The body of the card
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-3">
+            <div class="card card-danger">
+              <div class="card-header">
+                <h3 class="card-title">Maximizable</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="maximize"><i class="fas fa-expand"></i>
+                  </button>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                The body of the card
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+
+        <div class="row">
+          <div class="col-md-3">
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Card Refresh</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="card-refresh" data-source="widgets.html" data-source-selector="#card-refresh-content">
+                    <i class="fas fa-sync-alt"></i>
+                  </button>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                The body of the card
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+            <div class="d-none" id="card-refresh-content">
+                The body of the card after card refresh
+            </div>
+          </div>
+          <!-- /.col -->
+          <div class="col-md-3">
+            <div class="card card-success">
+              <div class="card-header">
+                <h3 class="card-title">All together</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="card-refresh" data-source="widgets.html" data-source-selector="#card-refresh-content" data-load-on-init="false">
+                    <i class="fas fa-sync-alt"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="maximize">
+                    <i class="fas fa-expand"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                The body of the card
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-3">
+            <div class="card card-warning">
+              <div class="card-header">
+                <h3 class="card-title">Loading state</h3>
+              </div>
+              <div class="card-body">
+                The body of the card
+              </div>
+              <!-- /.card-body -->
+              <!-- Loading (remove the following to stop the loading)-->
+              <div class="overlay">
+                <i class="fas fa-2x fa-sync-alt"></i>
+              </div>
+              <!-- end loading -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-3">
+            <div class="card card-danger">
+              <div class="card-header">
+                <h3 class="card-title">Loading state (dark)</h3>
+              </div>
+              <div class="card-body">
+                The body of the card
+              </div>
+              <!-- /.card-body -->
+              <!-- Loading (remove the following to stop the loading)-->
+              <div class="overlay dark">
+                <i class="fas fa-2x fa-sync-alt"></i>
+              </div>
+              <!-- end loading -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+
+        <!-- =========================================================== -->
+        <h5 class="mb-2">Custom Shadows Variations <small><i>Using Bootstrap's Shadow Utility</i></small></h5>
+        <div class="row">
+          <div class="col-md-3">
+            <div class="card card-primary shadow-none">
+              <div class="card-header">
+                <h3 class="card-title">Shadow - None</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                The body of the card
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-3">
+            <div class="card card-success shadow-sm">
+              <div class="card-header">
+                <h3 class="card-title">Shadow - Small</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                The body of the card
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-3">
+            <div class="card card-warning shadow">
+              <div class="card-header">
+                <h3 class="card-title">Shadow - Regular</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i>
+                  </button>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                The body of the card
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-3">
+            <div class="card card-danger shadow-lg">
+              <div class="card-header">
+                <h3 class="card-title">Shadow - Large</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="maximize"><i class="fas fa-expand"></i>
+                  </button>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                The body of the card
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+
+        <!-- =========================================================== -->
+
+        <h5 class="mb-2">Colors Variations</h5>
+
+        <div class="row">
+          <div class="col-md-3">
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Primary</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                The body of the card
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-3">
+            <div class="card card-success">
+              <div class="card-header">
+                <h3 class="card-title">Success</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i>
+                  </button>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                The body of the card
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-3">
+            <div class="card card-warning">
+              <div class="card-header">
+                <h3 class="card-title">Warning</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                The body of the card
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-3">
+            <div class="card card-danger">
+              <div class="card-header">
+                <h3 class="card-title">Danger</h3>
+              </div>
+              <div class="card-body">
+                The body of the card
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+
+        <div class="row">
+          <div class="col-md-3">
+            <div class="card card-outline card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Primary Outline</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                The body of the card
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-3">
+            <div class="card card-outline card-success">
+              <div class="card-header">
+                <h3 class="card-title">Success Outline</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i>
+                  </button>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                The body of the card
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-3">
+            <div class="card card-outline card-warning">
+              <div class="card-header">
+                <h3 class="card-title">Warning Outline</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                The body of the card
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-3">
+            <div class="card card-outline card-danger">
+              <div class="card-header">
+                <h3 class="card-title">Danger Outline</h3>
+              </div>
+              <div class="card-body">
+                The body of the card
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+
+        <div class="row">
+          <div class="col-md-3">
+            <div class="card bg-primary">
+              <div class="card-header">
+                <h3 class="card-title">Primary</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                The body of the card
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-3">
+            <div class="card bg-success">
+              <div class="card-header">
+                <h3 class="card-title">Success</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i>
+                  </button>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                The body of the card
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-3">
+            <div class="card bg-warning">
+              <div class="card-header">
+                <h3 class="card-title">Warning</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                The body of the card
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-3">
+            <div class="card bg-danger">
+              <div class="card-header">
+                <h3 class="card-title">Danger</h3>
+              </div>
+              <div class="card-body">
+                The body of the card
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+
+        <div class="row">
+          <div class="col-md-3">
+            <div class="card bg-gradient-primary">
+              <div class="card-header">
+                <h3 class="card-title">Primary Gradient</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                The body of the card
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-3">
+            <div class="card bg-gradient-success">
+              <div class="card-header">
+                <h3 class="card-title">Success Gradient</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i>
+                  </button>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                The body of the card
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-3">
+            <div class="card bg-gradient-warning">
+              <div class="card-header">
+                <h3 class="card-title">Warning Gradient</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                The body of the card
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-3">
+            <div class="card bg-gradient-danger">
+              <div class="card-header">
+                <h3 class="card-title">Danger Gradient</h3>
+              </div>
+              <div class="card-body">
+                The body of the card
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+
+        <!-- =========================================================== -->
+
+        <!-- Direct Chat -->
+        <h4 class="mt-4 mb-2">Direct Chat</h4>
+        <div class="row">
+          <div class="col-md-3">
+            <!-- DIRECT CHAT PRIMARY -->
+            <div class="card card-prirary cardutline direct-chat direct-chat-primary">
+              <div class="card-header">
+                <h3 class="card-title">Direct Chat</h3>
+
+                <div class="card-tools">
+                  <span title="3 New Messages" class="badge bg-primary">3</span>
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                      <i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" title="Contacts" data-widget="chat-pane-toggle">
+                    <i class="fas fa-comments"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <!-- Conversations are loaded here -->
+                <div class="direct-chat-messages">
+                  <!-- Message. Default to the left -->
+                  <div class="direct-chat-msg">
+                    <div class="direct-chat-infos clearfix">
+                      <span class="direct-chat-name float-left">Alexander Pierce</span>
+                      <span class="direct-chat-timestamp float-right">23 Jan 2:00 pm</span>
+                    </div>
+                    <!-- /.direct-chat-infos -->
+                    <img class="direct-chat-img" src="/static/assets/img/user1-128x128.jpg" alt="Message User Image">
+                    <!-- /.direct-chat-img -->
+                    <div class="direct-chat-text">
+                      Is this template really for free? That's unbelievable!
+                    </div>
+                    <!-- /.direct-chat-text -->
+                  </div>
+                  <!-- /.direct-chat-msg -->
+
+                  <!-- Message to the right -->
+                  <div class="direct-chat-msg right">
+                    <div class="direct-chat-infos clearfix">
+                      <span class="direct-chat-name float-right">Sarah Bullock</span>
+                      <span class="direct-chat-timestamp float-left">23 Jan 2:05 pm</span>
+                    </div>
+                    <!-- /.direct-chat-infos -->
+                    <img class="direct-chat-img" src="/static/assets/img/user3-128x128.jpg" alt="Message User Image">
+                    <!-- /.direct-chat-img -->
+                    <div class="direct-chat-text">
+                      You better believe it!
+                    </div>
+                    <!-- /.direct-chat-text -->
+                  </div>
+                  <!-- /.direct-chat-msg -->
+                </div>
+                <!--/.direct-chat-messages-->
+
+                <!-- Contacts are loaded here -->
+                <div class="direct-chat-contacts">
+                  <ul class="contacts-list">
+                    <li>
+                      <a href="#">
+                        <img class="contacts-list-img" src="/static/assets/img/user1-128x128.jpg" alt="User Avatar">
+
+                        <div class="contacts-list-info">
+                          <span class="contacts-list-name">
+                            Count Dracula
+                            <small class="contacts-list-date float-right">2/28/2015</small>
+                          </span>
+                          <span class="contacts-list-msg">How have you been? I was...</span>
+                        </div>
+                        <!-- /.contacts-list-info -->
+                      </a>
+                    </li>
+                    <!-- End Contact Item -->
+                  </ul>
+                  <!-- /.contatcts-list -->
+                </div>
+                <!-- /.direct-chat-pane -->
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer">
+                <form action="#" method="post">
+                  <div class="input-group">
+                    <input type="text" name="message" placeholder="Type Message ..." class="form-control">
+                    <span class="input-group-append">
+                      <button type="submit" class="btn btn-primary">Send</button>
+                    </span>
+                  </div>
+                </form>
+              </div>
+              <!-- /.card-footer-->
+            </div>
+            <!--/.direct-chat -->
+          </div>
+          <!-- /.col -->
+
+          <div class="col-md-3">
+            <!-- DIRECT CHAT SUCCESS -->
+            <div class="card card-sucress cardutline direct-chat direct-chat-success">
+              <div class="card-header">
+                <h3 class="card-title">Direct Chat</h3>
+
+                <div class="card-tools">
+                  <span title="3 New Messages" class="badge bg-success">3</span>
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" title="Contacts" data-widget="chat-pane-toggle">
+                    <i class="fas fa-comments"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <!-- Conversations are loaded here -->
+                <div class="direct-chat-messages">
+                  <!-- Message. Default to the left -->
+                  <div class="direct-chat-msg">
+                    <div class="direct-chat-infos clearfix">
+                      <span class="direct-chat-name float-left">Alexander Pierce</span>
+                      <span class="direct-chat-timestamp float-right">23 Jan 2:00 pm</span>
+                    </div>
+                    <!-- /.direct-chat-infos -->
+                    <img class="direct-chat-img" src="/static/assets/img/user1-128x128.jpg" alt="Message User Image">
+                    <!-- /.direct-chat-img -->
+                    <div class="direct-chat-text">
+                      Is this template really for free? That's unbelievable!
+                    </div>
+                    <!-- /.direct-chat-text -->
+                  </div>
+                  <!-- /.direct-chat-msg -->
+
+                  <!-- Message to the right -->
+                  <div class="direct-chat-msg right">
+                    <div class="direct-chat-infos clearfix">
+                      <span class="direct-chat-name float-right">Sarah Bullock</span>
+                      <span class="direct-chat-timestamp float-left">23 Jan 2:05 pm</span>
+                    </div>
+                    <!-- /.direct-chat-infos -->
+                    <img class="direct-chat-img" src="/static/assets/img/user3-128x128.jpg" alt="Message User Image">
+                    <!-- /.direct-chat-img -->
+                    <div class="direct-chat-text">
+                      You better believe it!
+                    </div>
+                    <!-- /.direct-chat-text -->
+                  </div>
+                  <!-- /.direct-chat-msg -->
+                </div>
+                <!--/.direct-chat-messages-->
+
+                <!-- Contacts are loaded here -->
+                <div class="direct-chat-contacts">
+                  <ul class="contacts-list">
+                    <li>
+                      <a href="#">
+                        <img class="contacts-list-img" src="/static/assets/img/user1-128x128.jpg" alt="User Avatar">
+
+                        <div class="contacts-list-info">
+                          <span class="contacts-list-name">
+                            Count Dracula
+                            <small class="contacts-list-date float-right">2/28/2015</small>
+                          </span>
+                          <span class="contacts-list-msg">How have you been? I was...</span>
+                        </div>
+                        <!-- /.contacts-list-info -->
+                      </a>
+                    </li>
+                    <!-- End Contact Item -->
+                  </ul>
+                  <!-- /.contatcts-list -->
+                </div>
+                <!-- /.direct-chat-pane -->
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer">
+                <form action="#" method="post">
+                  <div class="input-group">
+                    <input type="text" name="message" placeholder="Type Message ..." class="form-control">
+                    <span class="input-group-append">
+                      <button type="submit" class="btn btn-success">Send</button>
+                    </span>
+                  </div>
+                </form>
+              </div>
+              <!-- /.card-footer-->
+            </div>
+            <!--/.direct-chat -->
+          </div>
+          <!-- /.col -->
+
+          <div class="col-md-3">
+            <!-- DIRECT CHAT WARNING -->
+            <div class="card card-warning direct-chat direct-chat-warning">
+              <div class="card-header">
+                <h3 class="card-title">Direct Chat</h3>
+
+                <div class="card-tools">
+                  <span title="3 New Messages" class="badge bg-danger">3</span>
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" title="Contacts" data-widget="chat-pane-toggle">
+                    <i class="fas fa-comments"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <!-- Conversations are loaded here -->
+                <div class="direct-chat-messages">
+                  <!-- Message. Default to the left -->
+                  <div class="direct-chat-msg">
+                    <div class="direct-chat-infos clearfix">
+                      <span class="direct-chat-name float-left">Alexander Pierce</span>
+                      <span class="direct-chat-timestamp float-right">23 Jan 2:00 pm</span>
+                    </div>
+                    <!-- /.direct-chat-infos -->
+                    <img class="direct-chat-img" src="/static/assets/img/user1-128x128.jpg" alt="Message User Image">
+                    <!-- /.direct-chat-img -->
+                    <div class="direct-chat-text">
+                      Is this template really for free? That's unbelievable!
+                    </div>
+                    <!-- /.direct-chat-text -->
+                  </div>
+                  <!-- /.direct-chat-msg -->
+
+                  <!-- Message to the right -->
+                  <div class="direct-chat-msg right">
+                    <div class="direct-chat-infos clearfix">
+                      <span class="direct-chat-name float-right">Sarah Bullock</span>
+                      <span class="direct-chat-timestamp float-left">23 Jan 2:05 pm</span>
+                    </div>
+                    <!-- /.direct-chat-infos -->
+                    <img class="direct-chat-img" src="/static/assets/img/user3-128x128.jpg" alt="Message User Image">
+                    <!-- /.direct-chat-img -->
+                    <div class="direct-chat-text">
+                      You better believe it!
+                    </div>
+                    <!-- /.direct-chat-text -->
+                  </div>
+                  <!-- /.direct-chat-msg -->
+                </div>
+                <!--/.direct-chat-messages-->
+
+                <!-- Contacts are loaded here -->
+                <div class="direct-chat-contacts">
+                  <ul class="contacts-list">
+                    <li>
+                      <a href="#">
+                        <img class="contacts-list-img" src="/static/assets/img/user1-128x128.jpg" alt="User Avatar">
+
+                        <div class="contacts-list-info">
+                          <span class="contacts-list-name">
+                            Count Dracula
+                            <small class="contacts-list-date float-right">2/28/2015</small>
+                          </span>
+                          <span class="contacts-list-msg">How have you been? I was...</span>
+                        </div>
+                        <!-- /.contacts-list-info -->
+                      </a>
+                    </li>
+                    <!-- End Contact Item -->
+                  </ul>
+                  <!-- /.contatcts-list -->
+                </div>
+                <!-- /.direct-chat-pane -->
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer">
+                <form action="#" method="post">
+                  <div class="input-group">
+                    <input type="text" name="message" placeholder="Type Message ..." class="form-control">
+                    <span class="input-group-append">
+                      <button type="submit" class="btn btn-warning">Send</button>
+                    </span>
+                  </div>
+                </form>
+              </div>
+              <!-- /.card-footer-->
+            </div>
+            <!--/.direct-chat -->
+          </div>
+          <!-- /.col -->
+
+          <div class="col-md-3">
+            <!-- DIRECT CHAT DANGER -->
+            <div class="card card-danger direct-chat direct-chat-danger">
+              <div class="card-header">
+                <h3 class="card-title">Direct Chat</h3>
+
+                <div class="card-tools">
+                  <span title="3 New Messages" class="badge">3</span>
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" title="Contacts" data-widget="chat-pane-toggle">
+                    <i class="fas fa-comments"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <!-- Conversations are loaded here -->
+                <div class="direct-chat-messages">
+                  <!-- Message. Default to the left -->
+                  <div class="direct-chat-msg">
+                    <div class="direct-chat-infos clearfix">
+                      <span class="direct-chat-name float-left">Alexander Pierce</span>
+                      <span class="direct-chat-timestamp float-right">23 Jan 2:00 pm</span>
+                    </div>
+                    <!-- /.direct-chat-infos -->
+                    <img class="direct-chat-img" src="/static/assets/img/user1-128x128.jpg" alt="Message User Image">
+                    <!-- /.direct-chat-img -->
+                    <div class="direct-chat-text">
+                      Is this template really for free? That's unbelievable!
+                    </div>
+                    <!-- /.direct-chat-text -->
+                  </div>
+                  <!-- /.direct-chat-msg -->
+
+                  <!-- Message to the right -->
+                  <div class="direct-chat-msg right">
+                    <div class="direct-chat-infos clearfix">
+                      <span class="direct-chat-name float-right">Sarah Bullock</span>
+                      <span class="direct-chat-timestamp float-left">23 Jan 2:05 pm</span>
+                    </div>
+                    <!-- /.direct-chat-infos -->
+                    <img class="direct-chat-img" src="/static/assets/img/user3-128x128.jpg" alt="Message User Image">
+                    <!-- /.direct-chat-img -->
+                    <div class="direct-chat-text">
+                      You better believe it!
+                    </div>
+                    <!-- /.direct-chat-text -->
+                  </div>
+                  <!-- /.direct-chat-msg -->
+                </div>
+                <!--/.direct-chat-messages-->
+
+                <!-- Contacts are loaded here -->
+                <div class="direct-chat-contacts">
+                  <ul class="contacts-list">
+                    <li>
+                      <a href="#">
+                        <img class="contacts-list-img" src="/static/assets/img/user1-128x128.jpg" alt="User Avatar">
+
+                        <div class="contacts-list-info">
+                          <span class="contacts-list-name">
+                            Count Dracula
+                            <small class="contacts-list-date float-right">2/28/2015</small>
+                          </span>
+                          <span class="contacts-list-msg">How have you been? I was...</span>
+                        </div>
+                        <!-- /.contacts-list-info -->
+                      </a>
+                    </li>
+                    <!-- End Contact Item -->
+                  </ul>
+                  <!-- /.contatcts-list -->
+                </div>
+                <!-- /.direct-chat-pane -->
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer">
+                <form action="#" method="post">
+                  <div class="input-group">
+                    <input type="text" name="message" placeholder="Type Message ..." class="form-control">
+                    <span class="input-group-append">
+                      <button type="submit" class="btn btn-danger">Send</button>
+                    </span>
+                  </div>
+                </form>
+              </div>
+              <!-- /.card-footer-->
+            </div>
+            <!--/.direct-chat -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+
+        <!-- =========================================================== -->
+        <h5 class="mb-2">Custom Shadows Variations <small><i>Using Bootstrap's Shadow Utility</i></small></h5>
+        <div class="row">
+          <div class="col-md-3">
+            <!-- DIRECT CHAT PRIMARY -->
+            <div class="card card-prirary cardutline direct-chat direct-chat-primary shadow-none">
+              <div class="card-header">
+                <h3 class="card-title">Shadow - None</h3>
+
+                <div class="card-tools">
+                  <span title="3 New Messages" class="badge bg-primary">3</span>
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" title="Contacts" data-widget="chat-pane-toggle">
+                    <i class="fas fa-comments"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <!-- Conversations are loaded here -->
+                <div class="direct-chat-messages">
+                  <!-- Message. Default to the left -->
+                  <div class="direct-chat-msg">
+                    <div class="direct-chat-infos clearfix">
+                      <span class="direct-chat-name float-left">Alexander Pierce</span>
+                      <span class="direct-chat-timestamp float-right">23 Jan 2:00 pm</span>
+                    </div>
+                    <!-- /.direct-chat-infos -->
+                    <img class="direct-chat-img" src="/static/assets/img/user1-128x128.jpg" alt="Message User Image">
+                    <!-- /.direct-chat-img -->
+                    <div class="direct-chat-text">
+                      Is this template really for free? That's unbelievable!
+                    </div>
+                    <!-- /.direct-chat-text -->
+                  </div>
+                  <!-- /.direct-chat-msg -->
+
+                  <!-- Message to the right -->
+                  <div class="direct-chat-msg right">
+                    <div class="direct-chat-infos clearfix">
+                      <span class="direct-chat-name float-right">Sarah Bullock</span>
+                      <span class="direct-chat-timestamp float-left">23 Jan 2:05 pm</span>
+                    </div>
+                    <!-- /.direct-chat-infos -->
+                    <img class="direct-chat-img" src="/static/assets/img/user3-128x128.jpg" alt="Message User Image">
+                    <!-- /.direct-chat-img -->
+                    <div class="direct-chat-text">
+                      You better believe it!
+                    </div>
+                    <!-- /.direct-chat-text -->
+                  </div>
+                  <!-- /.direct-chat-msg -->
+                </div>
+                <!--/.direct-chat-messages-->
+
+                <!-- Contacts are loaded here -->
+                <div class="direct-chat-contacts">
+                  <ul class="contacts-list">
+                    <li>
+                      <a href="#">
+                        <img class="contacts-list-img" src="/static/assets/img/user1-128x128.jpg" alt="User Avatar">
+
+                        <div class="contacts-list-info">
+                          <span class="contacts-list-name">
+                            Count Dracula
+                            <small class="contacts-list-date float-right">2/28/2015</small>
+                          </span>
+                          <span class="contacts-list-msg">How have you been? I was...</span>
+                        </div>
+                        <!-- /.contacts-list-info -->
+                      </a>
+                    </li>
+                    <!-- End Contact Item -->
+                  </ul>
+                  <!-- /.contatcts-list -->
+                </div>
+                <!-- /.direct-chat-pane -->
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer">
+                <form action="#" method="post">
+                  <div class="input-group">
+                    <input type="text" name="message" placeholder="Type Message ..." class="form-control">
+                    <span class="input-group-append">
+                      <button type="submit" class="btn btn-primary">Send</button>
+                    </span>
+                  </div>
+                </form>
+              </div>
+              <!-- /.card-footer-->
+            </div>
+            <!--/.direct-chat -->
+          </div>
+          <!-- /.col -->
+
+          <div class="col-md-3">
+            <!-- DIRECT CHAT SUCCESS -->
+            <div class="card card-sucress cardutline direct-chat direct-chat-success shadow-sm">
+              <div class="card-header">
+                <h3 class="card-title">Shadow - Small</h3>
+
+                <div class="card-tools">
+                  <span title="3 New Messages" class="badge bg-success">3</span>
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" title="Contacts" data-widget="chat-pane-toggle">
+                    <i class="fas fa-comments"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <!-- Conversations are loaded here -->
+                <div class="direct-chat-messages">
+                  <!-- Message. Default to the left -->
+                  <div class="direct-chat-msg">
+                    <div class="direct-chat-infos clearfix">
+                      <span class="direct-chat-name float-left">Alexander Pierce</span>
+                      <span class="direct-chat-timestamp float-right">23 Jan 2:00 pm</span>
+                    </div>
+                    <!-- /.direct-chat-infos -->
+                    <img class="direct-chat-img" src="/static/assets/img/user1-128x128.jpg" alt="Message User Image">
+                    <!-- /.direct-chat-img -->
+                    <div class="direct-chat-text">
+                      Is this template really for free? That's unbelievable!
+                    </div>
+                    <!-- /.direct-chat-text -->
+                  </div>
+                  <!-- /.direct-chat-msg -->
+
+                  <!-- Message to the right -->
+                  <div class="direct-chat-msg right">
+                    <div class="direct-chat-infos clearfix">
+                      <span class="direct-chat-name float-right">Sarah Bullock</span>
+                      <span class="direct-chat-timestamp float-left">23 Jan 2:05 pm</span>
+                    </div>
+                    <!-- /.direct-chat-infos -->
+                    <img class="direct-chat-img" src="/static/assets/img/user3-128x128.jpg" alt="Message User Image">
+                    <!-- /.direct-chat-img -->
+                    <div class="direct-chat-text">
+                      You better believe it!
+                    </div>
+                    <!-- /.direct-chat-text -->
+                  </div>
+                  <!-- /.direct-chat-msg -->
+                </div>
+                <!--/.direct-chat-messages-->
+
+                <!-- Contacts are loaded here -->
+                <div class="direct-chat-contacts">
+                  <ul class="contacts-list">
+                    <li>
+                      <a href="#">
+                        <img class="contacts-list-img" src="/static/assets/img/user1-128x128.jpg" alt="User Avatar">
+
+                        <div class="contacts-list-info">
+                          <span class="contacts-list-name">
+                            Count Dracula
+                            <small class="contacts-list-date float-right">2/28/2015</small>
+                          </span>
+                          <span class="contacts-list-msg">How have you been? I was...</span>
+                        </div>
+                        <!-- /.contacts-list-info -->
+                      </a>
+                    </li>
+                    <!-- End Contact Item -->
+                  </ul>
+                  <!-- /.contatcts-list -->
+                </div>
+                <!-- /.direct-chat-pane -->
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer">
+                <form action="#" method="post">
+                  <div class="input-group">
+                    <input type="text" name="message" placeholder="Type Message ..." class="form-control">
+                    <span class="input-group-append">
+                      <button type="submit" class="btn btn-success">Send</button>
+                    </span>
+                  </div>
+                </form>
+              </div>
+              <!-- /.card-footer-->
+            </div>
+            <!--/.direct-chat -->
+          </div>
+          <!-- /.col -->
+
+          <div class="col-md-3">
+            <!-- DIRECT CHAT WARNING -->
+            <div class="card card-warning direct-chat direct-chat-warning shadow">
+              <div class="card-header">
+                <h3 class="card-title">Shadow - Regular</h3>
+
+                <div class="card-tools">
+                  <span title="3 New Messages" class="badge bg-danger">3</span>
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" title="Contacts" data-widget="chat-pane-toggle">
+                    <i class="fas fa-comments"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <!-- Conversations are loaded here -->
+                <div class="direct-chat-messages">
+                  <!-- Message. Default to the left -->
+                  <div class="direct-chat-msg">
+                    <div class="direct-chat-infos clearfix">
+                      <span class="direct-chat-name float-left">Alexander Pierce</span>
+                      <span class="direct-chat-timestamp float-right">23 Jan 2:00 pm</span>
+                    </div>
+                    <!-- /.direct-chat-infos -->
+                    <img class="direct-chat-img" src="/static/assets/img/user1-128x128.jpg" alt="Message User Image">
+                    <!-- /.direct-chat-img -->
+                    <div class="direct-chat-text">
+                      Is this template really for free? That's unbelievable!
+                    </div>
+                    <!-- /.direct-chat-text -->
+                  </div>
+                  <!-- /.direct-chat-msg -->
+
+                  <!-- Message to the right -->
+                  <div class="direct-chat-msg right">
+                    <div class="direct-chat-infos clearfix">
+                      <span class="direct-chat-name float-right">Sarah Bullock</span>
+                      <span class="direct-chat-timestamp float-left">23 Jan 2:05 pm</span>
+                    </div>
+                    <!-- /.direct-chat-infos -->
+                    <img class="direct-chat-img" src="/static/assets/img/user3-128x128.jpg" alt="Message User Image">
+                    <!-- /.direct-chat-img -->
+                    <div class="direct-chat-text">
+                      You better believe it!
+                    </div>
+                    <!-- /.direct-chat-text -->
+                  </div>
+                  <!-- /.direct-chat-msg -->
+                </div>
+                <!--/.direct-chat-messages-->
+
+                <!-- Contacts are loaded here -->
+                <div class="direct-chat-contacts">
+                  <ul class="contacts-list">
+                    <li>
+                      <a href="#">
+                        <img class="contacts-list-img" src="/static/assets/img/user1-128x128.jpg" alt="User Avatar">
+
+                        <div class="contacts-list-info">
+                          <span class="contacts-list-name">
+                            Count Dracula
+                            <small class="contacts-list-date float-right">2/28/2015</small>
+                          </span>
+                          <span class="contacts-list-msg">How have you been? I was...</span>
+                        </div>
+                        <!-- /.contacts-list-info -->
+                      </a>
+                    </li>
+                    <!-- End Contact Item -->
+                  </ul>
+                  <!-- /.contatcts-list -->
+                </div>
+                <!-- /.direct-chat-pane -->
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer">
+                <form action="#" method="post">
+                  <div class="input-group">
+                    <input type="text" name="message" placeholder="Type Message ..." class="form-control">
+                    <span class="input-group-append">
+                      <button type="submit" class="btn btn-warning">Send</button>
+                    </span>
+                  </div>
+                </form>
+              </div>
+              <!-- /.card-footer-->
+            </div>
+            <!--/.direct-chat -->
+          </div>
+          <!-- /.col -->
+
+          <div class="col-md-3">
+            <!-- DIRECT CHAT DANGER -->
+            <div class="card card-danger direct-chat direct-chat-danger shadow-lg">
+              <div class="card-header">
+                <h3 class="card-title">Shadow - Large</h3>
+
+                <div class="card-tools">
+                  <span title="3 New Messages" class="badge">3</span>
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" title="Contacts" data-widget="chat-pane-toggle">
+                    <i class="fas fa-comments"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <!-- Conversations are loaded here -->
+                <div class="direct-chat-messages">
+                  <!-- Message. Default to the left -->
+                  <div class="direct-chat-msg">
+                    <div class="direct-chat-infos clearfix">
+                      <span class="direct-chat-name float-left">Alexander Pierce</span>
+                      <span class="direct-chat-timestamp float-right">23 Jan 2:00 pm</span>
+                    </div>
+                    <!-- /.direct-chat-infos -->
+                    <img class="direct-chat-img" src="/static/assets/img/user1-128x128.jpg" alt="Message User Image">
+                    <!-- /.direct-chat-img -->
+                    <div class="direct-chat-text">
+                      Is this template really for free? That's unbelievable!
+                    </div>
+                    <!-- /.direct-chat-text -->
+                  </div>
+                  <!-- /.direct-chat-msg -->
+
+                  <!-- Message to the right -->
+                  <div class="direct-chat-msg right">
+                    <div class="direct-chat-infos clearfix">
+                      <span class="direct-chat-name float-right">Sarah Bullock</span>
+                      <span class="direct-chat-timestamp float-left">23 Jan 2:05 pm</span>
+                    </div>
+                    <!-- /.direct-chat-infos -->
+                    <img class="direct-chat-img" src="/static/assets/img/user3-128x128.jpg" alt="Message User Image">
+                    <!-- /.direct-chat-img -->
+                    <div class="direct-chat-text">
+                      You better believe it!
+                    </div>
+                    <!-- /.direct-chat-text -->
+                  </div>
+                  <!-- /.direct-chat-msg -->
+                </div>
+                <!--/.direct-chat-messages-->
+
+                <!-- Contacts are loaded here -->
+                <div class="direct-chat-contacts">
+                  <ul class="contacts-list">
+                    <li>
+                      <a href="#">
+                        <img class="contacts-list-img" src="/static/assets/img/user1-128x128.jpg" alt="User Avatar">
+
+                        <div class="contacts-list-info">
+                          <span class="contacts-list-name">
+                            Count Dracula
+                            <small class="contacts-list-date float-right">2/28/2015</small>
+                          </span>
+                          <span class="contacts-list-msg">How have you been? I was...</span>
+                        </div>
+                        <!-- /.contacts-list-info -->
+                      </a>
+                    </li>
+                    <!-- End Contact Item -->
+                  </ul>
+                  <!-- /.contatcts-list -->
+                </div>
+                <!-- /.direct-chat-pane -->
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer">
+                <form action="#" method="post">
+                  <div class="input-group">
+                    <input type="text" name="message" placeholder="Type Message ..." class="form-control">
+                    <span class="input-group-append">
+                      <button type="submit" class="btn btn-danger">Send</button>
+                    </span>
+                  </div>
+                </form>
+              </div>
+              <!-- /.card-footer-->
+            </div>
+            <!--/.direct-chat -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+
+        <h3 class="mt-4 mb-4">Social Widgets</h3>
+
+        <div class="row">
+          <div class="col-md-4">
+            <!-- Widget: user widget style 2 -->
+            <div class="card card-widget widget-user-2">
+              <!-- Add the bg color to the header using any of the bg-* classes -->
+              <div class="widget-user-header bg-warning">
+                <div class="widget-user-image">
+                  <img class="img-circle elevation-2" src="/static/assets/img/user7-128x128.jpg" alt="User Avatar">
+                </div>
+                <!-- /.widget-user-image -->
+                <h3 class="widget-user-username">Nadia Carmichael</h3>
+                <h5 class="widget-user-desc">Lead Developer</h5>
+              </div>
+              <div class="card-footer p-0">
+                <ul class="nav flex-column">
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      Projects <span class="float-right badge bg-primary">31</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      Tasks <span class="float-right badge bg-info">5</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      Completed Projects <span class="float-right badge bg-success">12</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      Followers <span class="float-right badge bg-danger">842</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- /.widget-user -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-4">
+            <!-- Widget: user widget style 1 -->
+            <div class="card card-widget widget-user">
+              <!-- Add the bg color to the header using any of the bg-* classes -->
+              <div class="widget-user-header bg-info">
+                <h3 class="widget-user-username">Alexander Pierce</h3>
+                <h5 class="widget-user-desc">Founder & CEO</h5>
+              </div>
+              <div class="widget-user-image">
+                <img class="img-circle elevation-2" src="/static/assets/img/user1-128x128.jpg" alt="User Avatar">
+              </div>
+              <div class="card-footer">
+                <div class="row">
+                  <div class="col-sm-4 border-right">
+                    <div class="description-block">
+                      <h5 class="description-header">3,200</h5>
+                      <span class="description-text">SALES</span>
+                    </div>
+                    <!-- /.description-block -->
+                  </div>
+                  <!-- /.col -->
+                  <div class="col-sm-4 border-right">
+                    <div class="description-block">
+                      <h5 class="description-header">13,000</h5>
+                      <span class="description-text">FOLLOWERS</span>
+                    </div>
+                    <!-- /.description-block -->
+                  </div>
+                  <!-- /.col -->
+                  <div class="col-sm-4">
+                    <div class="description-block">
+                      <h5 class="description-header">35</h5>
+                      <span class="description-text">PRODUCTS</span>
+                    </div>
+                    <!-- /.description-block -->
+                  </div>
+                  <!-- /.col -->
+                </div>
+                <!-- /.row -->
+              </div>
+            </div>
+            <!-- /.widget-user -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-4">
+            <!-- Widget: user widget style 1 -->
+            <div class="card card-widget widget-user">
+              <!-- Add the bg color to the header using any of the bg-* classes -->
+              <div class="widget-user-header text-white"
+                   style="background: url('/static/assets/img/photo1.png') center center;">
+                <h3 class="widget-user-username text-right">Elizabeth Pierce</h3>
+                <h5 class="widget-user-desc text-right">Web Designer</h5>
+              </div>
+              <div class="widget-user-image">
+                <img class="img-circle" src="/static/assets/img/user3-128x128.jpg" alt="User Avatar">
+              </div>
+              <div class="card-footer">
+                <div class="row">
+                  <div class="col-sm-4 border-right">
+                    <div class="description-block">
+                      <h5 class="description-header">3,200</h5>
+                      <span class="description-text">SALES</span>
+                    </div>
+                    <!-- /.description-block -->
+                  </div>
+                  <!-- /.col -->
+                  <div class="col-sm-4 border-right">
+                    <div class="description-block">
+                      <h5 class="description-header">13,000</h5>
+                      <span class="description-text">FOLLOWERS</span>
+                    </div>
+                    <!-- /.description-block -->
+                  </div>
+                  <!-- /.col -->
+                  <div class="col-sm-4">
+                    <div class="description-block">
+                      <h5 class="description-header">35</h5>
+                      <span class="description-text">PRODUCTS</span>
+                    </div>
+                    <!-- /.description-block -->
+                  </div>
+                  <!-- /.col -->
+                </div>
+                <!-- /.row -->
+              </div>
+            </div>
+            <!-- /.widget-user -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+
+        <div class="row">
+          <div class="col-md-6">
+            <!-- Box Comment -->
+            <div class="card card-widget">
+              <div class="card-header">
+                <div class="user-block">
+                  <img class="img-circle" src="/static/assets/img/user1-128x128.jpg" alt="User Image">
+                  <span class="username"><a href="#">Jonathan Burke Jr.</a></span>
+                  <span class="description">Shared publicly - 7:30 PM Today</span>
+                </div>
+                <!-- /.user-block -->
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" title="Mark as read">
+                    <i class="far fa-circle"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <img class="img-fluid pad" src="/static/assets/img/photo2.png" alt="Photo">
+
+                <p>I took this photo this morning. What do you guys think?</p>
+                <button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i> Share</button>
+                <button type="button" class="btn btn-default btn-sm"><i class="far fa-thumbs-up"></i> Like</button>
+                <span class="float-right text-muted">127 likes - 3 comments</span>
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer card-comments">
+                <div class="card-comment">
+                  <!-- User image -->
+                  <img class="img-circle img-sm" src="/static/assets/img/user3-128x128.jpg" alt="User Image">
+
+                  <div class="comment-text">
+                    <span class="username">
+                      Maria Gonzales
+                      <span class="text-muted float-right">8:03 PM Today</span>
+                    </span><!-- /.username -->
+                    It is a long established fact that a reader will be distracted
+                    by the readable content of a page when looking at its layout.
+                  </div>
+                  <!-- /.comment-text -->
+                </div>
+                <!-- /.card-comment -->
+                <div class="card-comment">
+                  <!-- User image -->
+                  <img class="img-circle img-sm" src="/static/assets/img/user4-128x128.jpg" alt="User Image">
+
+                  <div class="comment-text">
+                    <span class="username">
+                      Luna Stark
+                      <span class="text-muted float-right">8:03 PM Today</span>
+                    </span><!-- /.username -->
+                    It is a long established fact that a reader will be distracted
+                    by the readable content of a page when looking at its layout.
+                  </div>
+                  <!-- /.comment-text -->
+                </div>
+                <!-- /.card-comment -->
+              </div>
+              <!-- /.card-footer -->
+              <div class="card-footer">
+                <form action="#" method="post">
+                  <img class="img-fluid img-circle img-sm" src="/static/assets/img/user4-128x128.jpg" alt="Alt Text">
+                  <!-- .img-push is used to add margin to elements next to floating images -->
+                  <div class="img-push">
+                    <input type="text" class="form-control form-control-sm" placeholder="Press enter to post comment">
+                  </div>
+                </form>
+              </div>
+              <!-- /.card-footer -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-6">
+            <!-- Box Comment -->
+            <div class="card card-widget">
+              <div class="card-header">
+                <div class="user-block">
+                  <img class="img-circle" src="/static/assets/img/user1-128x128.jpg" alt="User Image">
+                  <span class="username"><a href="#">Jonathan Burke Jr.</a></span>
+                  <span class="description">Shared publicly - 7:30 PM Today</span>
+                </div>
+                <!-- /.user-block -->
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" title="Mark as read">
+                    <i class="far fa-circle"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <!-- post text -->
+                <p>Far far away, behind the word mountains, far from the
+                  countries Vokalia and Consonantia, there live the blind
+                  texts. Separated they live in Bookmarksgrove right at</p>
+
+                <p>the coast of the Semantics, a large language ocean.
+                  A small river named Duden flows by their place and supplies
+                  it with the necessary regelialia. It is a paradisematic
+                  country, in which roasted parts of sentences fly into
+                  your mouth.</p>
+
+                <!-- Attachment -->
+                <div class="attachment-block clearfix">
+                  <img class="attachment-img" src="/static/assets/img/photo1.png" alt="Attachment Image">
+
+                  <div class="attachment-pushed">
+                    <h4 class="attachment-heading"><a href="https://www.lipsum.com/">Lorem ipsum text generator</a></h4>
+
+                    <div class="attachment-text">
+                      Description about the attachment can be placed here.
+                      Lorem Ipsum is simply dummy text of the printing and typesetting industry... <a href="#">more</a>
+                    </div>
+                    <!-- /.attachment-text -->
+                  </div>
+                  <!-- /.attachment-pushed -->
+                </div>
+                <!-- /.attachment-block -->
+
+                <!-- Social sharing buttons -->
+                <button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i> Share</button>
+                <button type="button" class="btn btn-default btn-sm"><i class="far fa-thumbs-up"></i> Like</button>
+                <span class="float-right text-muted">45 likes - 2 comments</span>
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer card-comments">
+                <div class="card-comment">
+                  <!-- User image -->
+                  <img class="img-circle img-sm" src="/static/assets/img/user3-128x128.jpg" alt="User Image">
+
+                  <div class="comment-text">
+                    <span class="username">
+                      Maria Gonzales
+                      <span class="text-muted float-right">8:03 PM Today</span>
+                    </span><!-- /.username -->
+                    It is a long established fact that a reader will be distracted
+                    by the readable content of a page when looking at its layout.
+                  </div>
+                  <!-- /.comment-text -->
+                </div>
+                <!-- /.card-comment -->
+                <div class="card-comment">
+                  <!-- User image -->
+                  <img class="img-circle img-sm" src="/static/assets/img/user5-128x128.jpg" alt="User Image">
+
+                  <div class="comment-text">
+                    <span class="username">
+                      Nora Havisham
+                      <span class="text-muted float-right">8:03 PM Today</span>
+                    </span><!-- /.username -->
+                    The point of using Lorem Ipsum is that it hrs a morer-less
+                    normal distribution of letters, as opposed to using
+                    'Content here, content here', making it look like readable English.
+                  </div>
+                  <!-- /.comment-text -->
+                </div>
+                <!-- /.card-comment -->
+              </div>
+              <!-- /.card-footer -->
+              <div class="card-footer">
+                <form action="#" method="post">
+                  <img class="img-fluid img-circle img-sm" src="/static/assets/img/user4-128x128.jpg" alt="Alt Text">
+                  <!-- .img-push is used to add margin to elements next to floating images -->
+                  <div class="img-push">
+                    <input type="text" class="form-control form-control-sm" placeholder="Press enter to post comment">
+                  </div>
+                </form>
+              </div>
+              <!-- /.card-footer -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+
+        <!-- =========================================================== -->
+        <h5 class="mb-2">Custom Shadows Variations <small><i>Using Bootstrap's Shadow Utility</i></small></h5>
+        <div class="row">
+          <div class="col-md-4">
+            <!-- Widget: user widget style 2 -->
+            <div class="card card-widget widget-user-2 shadow-sm">
+              <!-- Add the bg color to the header using any of the bg-* classes -->
+              <div class="widget-user-header bg-warning">
+                <div class="widget-user-image">
+                  <img class="img-circle elevation-2" src="/static/assets/img/user7-128x128.jpg" alt="User Avatar">
+                </div>
+                <!-- /.widget-user-image -->
+                <h3 class="widget-user-username">Nadia Carmichael</h3>
+                <h5 class="widget-user-desc">Lead Developer</h5>
+              </div>
+              <div class="card-footer p-0">
+                <ul class="nav flex-column">
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      Projects <span class="float-right badge bg-primary">31</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      Tasks <span class="float-right badge bg-info">5</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      Completed Projects <span class="float-right badge bg-success">12</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      Followers <span class="float-right badge bg-danger">842</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- /.widget-user -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-4">
+            <!-- Widget: user widget style 1 -->
+            <div class="card card-widget widget-user shadow">
+              <!-- Add the bg color to the header using any of the bg-* classes -->
+              <div class="widget-user-header bg-info">
+                <h3 class="widget-user-username">Alexander Pierce</h3>
+                <h5 class="widget-user-desc">Founder & CEO</h5>
+              </div>
+              <div class="widget-user-image">
+                <img class="img-circle elevation-2" src="/static/assets/img/user1-128x128.jpg" alt="User Avatar">
+              </div>
+              <div class="card-footer">
+                <div class="row">
+                  <div class="col-sm-4 border-right">
+                    <div class="description-block">
+                      <h5 class="description-header">3,200</h5>
+                      <span class="description-text">SALES</span>
+                    </div>
+                    <!-- /.description-block -->
+                  </div>
+                  <!-- /.col -->
+                  <div class="col-sm-4 border-right">
+                    <div class="description-block">
+                      <h5 class="description-header">13,000</h5>
+                      <span class="description-text">FOLLOWERS</span>
+                    </div>
+                    <!-- /.description-block -->
+                  </div>
+                  <!-- /.col -->
+                  <div class="col-sm-4">
+                    <div class="description-block">
+                      <h5 class="description-header">35</h5>
+                      <span class="description-text">PRODUCTS</span>
+                    </div>
+                    <!-- /.description-block -->
+                  </div>
+                  <!-- /.col -->
+                </div>
+                <!-- /.row -->
+              </div>
+            </div>
+            <!-- /.widget-user -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-4">
+            <!-- Widget: user widget style 1 -->
+            <div class="card card-widget widget-user shadow-lg">
+              <!-- Add the bg color to the header using any of the bg-* classes -->
+              <div class="widget-user-header text-white"
+                   style="background: url('/static/assets/img/photo1.png') center center;">
+                <h3 class="widget-user-username text-right">Elizabeth Pierce</h3>
+                <h5 class="widget-user-desc text-right">Web Designer</h5>
+              </div>
+              <div class="widget-user-image">
+                <img class="img-circle" src="/static/assets/img/user3-128x128.jpg" alt="User Avatar">
+              </div>
+              <div class="card-footer">
+                <div class="row">
+                  <div class="col-sm-4 border-right">
+                    <div class="description-block">
+                      <h5 class="description-header">3,200</h5>
+                      <span class="description-text">SALES</span>
+                    </div>
+                    <!-- /.description-block -->
+                  </div>
+                  <!-- /.col -->
+                  <div class="col-sm-4 border-right">
+                    <div class="description-block">
+                      <h5 class="description-header">13,000</h5>
+                      <span class="description-text">FOLLOWERS</span>
+                    </div>
+                    <!-- /.description-block -->
+                  </div>
+                  <!-- /.col -->
+                  <div class="col-sm-4">
+                    <div class="description-block">
+                      <h5 class="description-header">35</h5>
+                      <span class="description-text">PRODUCTS</span>
+                    </div>
+                    <!-- /.description-block -->
+                  </div>
+                  <!-- /.col -->
+                </div>
+                <!-- /.row -->
+              </div>
+            </div>
+            <!-- /.widget-user -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+
+    <a id="back-to-top" href="#" class="btn btn-primary back-to-top" role="button" aria-label="Scroll to top">
+      <i class="fas fa-chevron-up"></i>
+    </a>
+  </div>
+  <!-- /.content-wrapper -->
 
 {% endblock content %}
 
 <!-- Specific Page JS goes HERE  -->
 {% block javascripts %}
 
-	<!-- Atlantis DEMO methods, don't include it in your project! -->
-	<script src="/static/assets/js/setting-demo.js"></script>
-	<script>
-		$('#lineChart').sparkline([102,109,120,99,110,105,115], {
-			type: 'line',
-			height: '70',
-			width: '100%',
-			lineWidth: '2',
-			lineColor: '#177dff',
-			fillColor: 'rgba(23, 125, 255, 0.14)'
-		});
-
-		$('#lineChart2').sparkline([99,125,122,105,110,124,115], {
-			type: 'line',
-			height: '70',
-			width: '100%',
-			lineWidth: '2',
-			lineColor: '#f3545d',
-			fillColor: 'rgba(243, 84, 93, .14)'
-		});
-
-		$('#lineChart3').sparkline([105,103,123,100,95,105,115], {
-			type: 'line',
-			height: '70',
-			width: '100%',
-			lineWidth: '2',
-			lineColor: '#ffa534',
-			fillColor: 'rgba(255, 165, 52, .14)'
-		});
-
-		$('#lineChart4').sparkline([102,109,120,99,110,105,115], {
-			type: 'line',
-			height: '70',
-			width: '100%',
-			lineWidth: '2',
-			lineColor: 'rgba(255, 255, 255, .5)',
-			fillColor: 'rgba(255, 255, 255, .15)'
-		});
-
-		$('#lineChart5').sparkline([99,125,122,105,110,124,115], {
-			type: 'line',
-			height: '70',
-			width: '100%',
-			lineWidth: '2',
-			lineColor: 'rgba(255, 255, 255, .5)',
-			fillColor: 'rgba(255, 255, 255, .15)'
-		});
-
-		$('#lineChart6').sparkline([105,103,123,100,95,105,115], {
-			type: 'line',
-			height: '70',
-			width: '100%',
-			lineWidth: '2',
-			lineColor: 'rgba(255, 255, 255, .5)',
-			fillColor: 'rgba(255, 255, 255, .15)'
-		});
-	</script>
+  <!-- jQuery -->
+  <script src="/static/assets/plugins/jquery/jquery.min.js"></script>
+  <!-- Bootstrap 4 -->
+  <script src="/static/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="/static/assets/js/adminlte.min.js"></script>
+  <!-- AdminLTE for demo purposes -->
+  <script src="/static/assets/js/demo.js"></script>
 
 {% endblock javascripts %}

@@ -12,7 +12,17 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
+@app.route("/qrcode")
+def qrcode():
+    return render_template('qrcode.html')
+    
+@app.route("/processes")
+def processes():
+    return render_template('processes.html')    
 
+@app.route("/messages")
+def messages():
+    return render_template('messages.html') 
 
 # GET all passengers
 @app.route("/api/passengers")

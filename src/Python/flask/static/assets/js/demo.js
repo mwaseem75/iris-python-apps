@@ -1,288 +1,430 @@
-"use strict";
-// Cicle Chart
-Circles.create({
-	id:           'task-complete',
-	radius:       50,
-	value:        80,
-	maxValue:     100,
-	width:        5,
-	text:         function(value){return value + '%';},
-	colors:       ['#36a3f7', '#fff'],
-	duration:     400,
-	wrpClass:     'circles-wrp',
-	textClass:    'circles-text',
-	styleWrapper: true,
-	styleText:    true
-})
+/**
+ * AdminLTE Demo Menu
+ * ------------------
+ * You should not use this file in production.
+ * This file is for demo purposes only.
+ */
 
-//Notify
-$.notify({
-	icon: 'flaticon-alarm-1',
-	title: 'Atlantis Lite',
-	message: 'Free Bootstrap 4 Admin Dashboard',
-},{
-	type: 'info',
-	placement: {
-		from: "bottom",
-		align: "right"
-	},
-	time: 1000,
-});
+/* eslint-disable camelcase */
 
-// JQVmap
-$('#map-example').vectorMap(
-{
-	map: 'world_en',
-	backgroundColor: 'transparent',
-	borderColor: '#fff',
-	borderWidth: 2,
-	color: '#e4e4e4',
-	enableZoom: true,
-	hoverColor: '#35cd3a',
-	hoverOpacity: null,
-	normalizeFunction: 'linear',
-	scaleColors: ['#b6d6ff', '#005ace'],
-	selectedColor: '#35cd3a',
-	selectedRegions: ['ID', 'RU', 'US', 'AU', 'CN', 'BR'],
-	showTooltip: true,
-	onRegionClick: function(element, code, region)
-	{
-		return false;
-	}
-});
+(function ($) {
+  'use strict'
 
-//Chart
+  var $sidebar = $('.control-sidebar')
+  var $container = $('<div />', {
+    class: 'p-3 control-sidebar-content'
+  })
 
-var ctx = document.getElementById('statisticsChart').getContext('2d');
+  $sidebar.append($container)
 
-var statisticsChart = new Chart(ctx, {
-	type: 'line',
-	data: {
-		labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-		datasets: [ {
-			label: "Subscribers",
-			borderColor: '#f3545d',
-			pointBackgroundColor: 'rgba(243, 84, 93, 0.6)',
-			pointRadius: 0,
-			backgroundColor: 'rgba(243, 84, 93, 0.4)',
-			legendColor: '#f3545d',
-			fill: true,
-			borderWidth: 2,
-			data: [154, 184, 175, 203, 210, 231, 240, 278, 252, 312, 320, 374]
-		}, {
-			label: "New Visitors",
-			borderColor: '#fdaf4b',
-			pointBackgroundColor: 'rgba(253, 175, 75, 0.6)',
-			pointRadius: 0,
-			backgroundColor: 'rgba(253, 175, 75, 0.4)',
-			legendColor: '#fdaf4b',
-			fill: true,
-			borderWidth: 2,
-			data: [256, 230, 245, 287, 240, 250, 230, 295, 331, 431, 456, 521]
-		}, {
-			label: "Active Users",
-			borderColor: '#177dff',
-			pointBackgroundColor: 'rgba(23, 125, 255, 0.6)',
-			pointRadius: 0,
-			backgroundColor: 'rgba(23, 125, 255, 0.4)',
-			legendColor: '#177dff',
-			fill: true,
-			borderWidth: 2,
-			data: [542, 480, 430, 550, 530, 453, 380, 434, 568, 610, 700, 900]
-		}]
-	},
-	options : {
-		responsive: true, 
-		maintainAspectRatio: false,
-		legend: {
-			display: false
-		},
-		tooltips: {
-			bodySpacing: 4,
-			mode:"nearest",
-			intersect: 0,
-			position:"nearest",
-			xPadding:10,
-			yPadding:10,
-			caretPadding:10
-		},
-		layout:{
-			padding:{left:5,right:5,top:15,bottom:15}
-		},
-		scales: {
-			yAxes: [{
-				ticks: {
-					fontStyle: "500",
-					beginAtZero: false,
-					maxTicksLimit: 5,
-					padding: 10
-				},
-				gridLines: {
-					drawTicks: false,
-					display: false
-				}
-			}],
-			xAxes: [{
-				gridLines: {
-					zeroLineColor: "transparent"
-				},
-				ticks: {
-					padding: 10,
-					fontStyle: "500"
-				}
-			}]
-		}, 
-		legendCallback: function(chart) { 
-			var text = []; 
-			text.push('<ul class="' + chart.id + '-legend html-legend">'); 
-			for (var i = 0; i < chart.data.datasets.length; i++) { 
-				text.push('<li><span style="background-color:' + chart.data.datasets[i].legendColor + '"></span>'); 
-				if (chart.data.datasets[i].label) { 
-					text.push(chart.data.datasets[i].label); 
-				} 
-				text.push('</li>'); 
-			} 
-			text.push('</ul>'); 
-			return text.join(''); 
-		}  
-	}
-});
+  var navbar_dark_skins = [
+    'navbar-primary',
+    'navbar-secondary',
+    'navbar-info',
+    'navbar-success',
+    'navbar-danger',
+    'navbar-indigo',
+    'navbar-purple',
+    'navbar-pink',
+    'navbar-navy',
+    'navbar-lightblue',
+    'navbar-teal',
+    'navbar-cyan',
+    'navbar-dark',
+    'navbar-gray-dark',
+    'navbar-gray'
+  ]
 
-var myLegendContainer = document.getElementById("myChartLegend");
+  var navbar_light_skins = [
+    'navbar-light',
+    'navbar-warning',
+    'navbar-white',
+    'navbar-orange'
+  ]
 
-// generate HTML legend
-myLegendContainer.innerHTML = statisticsChart.generateLegend();
+  $container.append(
+    '<h5>Customize AdminLTE</h5><hr class="mb-2"/>'
+  )
 
-// bind onClick event to all LI-tags of the legend
-var legendItems = myLegendContainer.getElementsByTagName('li');
-for (var i = 0; i < legendItems.length; i += 1) {
-	legendItems[i].addEventListener("click", legendClickCallback, false);
-}
+  var $no_border_checkbox = $('<input />', {
+    type: 'checkbox',
+    value: 1,
+    checked: $('.main-header').hasClass('border-bottom-0'),
+    class: 'mr-1'
+  }).on('click', function () {
+    if ($(this).is(':checked')) {
+      $('.main-header').addClass('border-bottom-0')
+    } else {
+      $('.main-header').removeClass('border-bottom-0')
+    }
+  })
+  var $no_border_container = $('<div />', { class: 'mb-1' }).append($no_border_checkbox).append('<span>No Navbar border</span>')
+  $container.append($no_border_container)
 
-var dailySalesChart = document.getElementById('dailySalesChart').getContext('2d');
+  var $text_sm_body_checkbox = $('<input />', {
+    type: 'checkbox',
+    value: 1,
+    checked: $('body').hasClass('text-sm'),
+    class: 'mr-1'
+  }).on('click', function () {
+    if ($(this).is(':checked')) {
+      $('body').addClass('text-sm')
+    } else {
+      $('body').removeClass('text-sm')
+    }
+  })
+  var $text_sm_body_container = $('<div />', { class: 'mb-1' }).append($text_sm_body_checkbox).append('<span>Body small text</span>')
+  $container.append($text_sm_body_container)
 
-var myDailySalesChart = new Chart(dailySalesChart, {
-	type: 'line',
-	data: {
-		labels:["January",
-		"February",
-		"March",
-		"April",
-		"May",
-		"June",
-		"July",
-		"August",
-		"September"],
-		datasets:[ {
-			label: "Sales Analytics", fill: !0, backgroundColor: "rgba(255,255,255,0.2)", borderColor: "#fff", borderCapStyle: "butt", borderDash: [], borderDashOffset: 0, pointBorderColor: "#fff", pointBackgroundColor: "#fff", pointBorderWidth: 1, pointHoverRadius: 5, pointHoverBackgroundColor: "#fff", pointHoverBorderColor: "#fff", pointHoverBorderWidth: 1, pointRadius: 1, pointHitRadius: 5, data: [65, 59, 80, 81, 56, 55, 40, 35, 30]
-		}]
-	},
-	options : {
-		maintainAspectRatio:!1, legend: {
-			display: !1
-		}
-		, animation: {
-			easing: "easeInOutBack"
-		}
-		, scales: {
-			yAxes:[ {
-				display:!1, ticks: {
-					fontColor: "rgba(0,0,0,0.5)", fontStyle: "bold", beginAtZero: !0, maxTicksLimit: 10, padding: 0
-				}
-				, gridLines: {
-					drawTicks: !1, display: !1
-				}
-			}
-			], xAxes:[ {
-				display:!1, gridLines: {
-					zeroLineColor: "transparent"
-				}
-				, ticks: {
-					padding: -20, fontColor: "rgba(255,255,255,0.2)", fontStyle: "bold"
-				}
-			}
-			]
-		}
-	}
-});
+  var $text_sm_header_checkbox = $('<input />', {
+    type: 'checkbox',
+    value: 1,
+    checked: $('.main-header').hasClass('text-sm'),
+    class: 'mr-1'
+  }).on('click', function () {
+    if ($(this).is(':checked')) {
+      $('.main-header').addClass('text-sm')
+    } else {
+      $('.main-header').removeClass('text-sm')
+    }
+  })
+  var $text_sm_header_container = $('<div />', { class: 'mb-1' }).append($text_sm_header_checkbox).append('<span>Navbar small text</span>')
+  $container.append($text_sm_header_container)
 
-$("#activeUsersChart").sparkline([112,109,120,107,110,85,87,90,102,109,120,99,110,85,87,94], {
-	type: 'bar',
-	height: '100',
-	barWidth: 9,
-	barSpacing: 10,
-	barColor: 'rgba(255,255,255,.3)'
-});
+  var $text_sm_sidebar_checkbox = $('<input />', {
+    type: 'checkbox',
+    value: 1,
+    checked: $('.nav-sidebar').hasClass('text-sm'),
+    class: 'mr-1'
+  }).on('click', function () {
+    if ($(this).is(':checked')) {
+      $('.nav-sidebar').addClass('text-sm')
+    } else {
+      $('.nav-sidebar').removeClass('text-sm')
+    }
+  })
+  var $text_sm_sidebar_container = $('<div />', { class: 'mb-1' }).append($text_sm_sidebar_checkbox).append('<span>Sidebar nav small text</span>')
+  $container.append($text_sm_sidebar_container)
 
-var topProductsChart = document.getElementById('topProductsChart').getContext('2d');
+  var $text_sm_footer_checkbox = $('<input />', {
+    type: 'checkbox',
+    value: 1,
+    checked: $('.main-footer').hasClass('text-sm'),
+    class: 'mr-1'
+  }).on('click', function () {
+    if ($(this).is(':checked')) {
+      $('.main-footer').addClass('text-sm')
+    } else {
+      $('.main-footer').removeClass('text-sm')
+    }
+  })
+  var $text_sm_footer_container = $('<div />', { class: 'mb-1' }).append($text_sm_footer_checkbox).append('<span>Footer small text</span>')
+  $container.append($text_sm_footer_container)
 
-var myTopProductsChart = new Chart(topProductsChart, {
-	type:"line",
-	data: {
-		labels:["January",
-		"February",
-		"March",
-		"April",
-		"May",
-		"June",
-		"July",
-		"August",
-		"September",
-		"October",
-		"January",
-		"February",
-		"March",
-		"April",
-		"May",
-		"June",
-		"July",
-		"August",
-		"September",
-		"October",
-		"January",
-		"February",
-		"March",
-		"April",
-		"May",
-		"June",
-		"July",
-		"August",
-		"September",
-		"October",
-		"January",
-		"February",
-		"March",
-		"April"],
-		datasets:[ {
-			label: "Sales Analytics", fill: !0, backgroundColor: "rgba(53, 205, 58, 0.2)", borderColor: "#35cd3a", borderCapStyle: "butt", borderDash: [], borderDashOffset: 0, pointBorderColor: "#35cd3a", pointBackgroundColor: "#35cd3a", pointBorderWidth: 1, pointHoverRadius: 5, pointHoverBackgroundColor: "#35cd3a", pointHoverBorderColor: "#35cd3a", pointHoverBorderWidth: 1, pointRadius: 1, pointHitRadius: 5, data: [20, 10, 18, 14, 32, 18, 15, 22, 8, 6, 17, 12, 17, 18, 14, 25, 18, 12, 19, 21, 16, 14, 24, 21, 13, 15, 27, 29, 21, 11, 14, 19, 21, 17]
-		}
-		]
-	},
-	options : {
-		maintainAspectRatio:!1, legend: {
-			display: !1
-		}
-		, animation: {
-			easing: "easeInOutBack"
-		}
-		, scales: {
-			yAxes:[ {
-				display:!1, ticks: {
-					fontColor: "rgba(0,0,0,0.5)", fontStyle: "bold", beginAtZero: !0, maxTicksLimit: 10, padding: 0
-				}
-				, gridLines: {
-					drawTicks: !1, display: !1
-				}
-			}
-			], xAxes:[ {
-				display:!1, gridLines: {
-					zeroLineColor: "transparent"
-				}
-				, ticks: {
-					padding: -20, fontColor: "rgba(255,255,255,0.2)", fontStyle: "bold"
-				}
-			}
-			]
-		}
-	}
-});
+  var $flat_sidebar_checkbox = $('<input />', {
+    type: 'checkbox',
+    value: 1,
+    checked: $('.nav-sidebar').hasClass('nav-flat'),
+    class: 'mr-1'
+  }).on('click', function () {
+    if ($(this).is(':checked')) {
+      $('.nav-sidebar').addClass('nav-flat')
+    } else {
+      $('.nav-sidebar').removeClass('nav-flat')
+    }
+  })
+  var $flat_sidebar_container = $('<div />', { class: 'mb-1' }).append($flat_sidebar_checkbox).append('<span>Sidebar nav flat style</span>')
+  $container.append($flat_sidebar_container)
+
+  var $legacy_sidebar_checkbox = $('<input />', {
+    type: 'checkbox',
+    value: 1,
+    checked: $('.nav-sidebar').hasClass('nav-legacy'),
+    class: 'mr-1'
+  }).on('click', function () {
+    if ($(this).is(':checked')) {
+      $('.nav-sidebar').addClass('nav-legacy')
+    } else {
+      $('.nav-sidebar').removeClass('nav-legacy')
+    }
+  })
+  var $legacy_sidebar_container = $('<div />', { class: 'mb-1' }).append($legacy_sidebar_checkbox).append('<span>Sidebar nav legacy style</span>')
+  $container.append($legacy_sidebar_container)
+
+  var $compact_sidebar_checkbox = $('<input />', {
+    type: 'checkbox',
+    value: 1,
+    checked: $('.nav-sidebar').hasClass('nav-compact'),
+    class: 'mr-1'
+  }).on('click', function () {
+    if ($(this).is(':checked')) {
+      $('.nav-sidebar').addClass('nav-compact')
+    } else {
+      $('.nav-sidebar').removeClass('nav-compact')
+    }
+  })
+  var $compact_sidebar_container = $('<div />', { class: 'mb-1' }).append($compact_sidebar_checkbox).append('<span>Sidebar nav compact</span>')
+  $container.append($compact_sidebar_container)
+
+  var $child_indent_sidebar_checkbox = $('<input />', {
+    type: 'checkbox',
+    value: 1,
+    checked: $('.nav-sidebar').hasClass('nav-child-indent'),
+    class: 'mr-1'
+  }).on('click', function () {
+    if ($(this).is(':checked')) {
+      $('.nav-sidebar').addClass('nav-child-indent')
+    } else {
+      $('.nav-sidebar').removeClass('nav-child-indent')
+    }
+  })
+  var $child_indent_sidebar_container = $('<div />', { class: 'mb-1' }).append($child_indent_sidebar_checkbox).append('<span>Sidebar nav child indent</span>')
+  $container.append($child_indent_sidebar_container)
+
+  var $no_expand_sidebar_checkbox = $('<input />', {
+    type: 'checkbox',
+    value: 1,
+    checked: $('.main-sidebar').hasClass('sidebar-no-expand'),
+    class: 'mr-1'
+  }).on('click', function () {
+    if ($(this).is(':checked')) {
+      $('.main-sidebar').addClass('sidebar-no-expand')
+    } else {
+      $('.main-sidebar').removeClass('sidebar-no-expand')
+    }
+  })
+  var $no_expand_sidebar_container = $('<div />', { class: 'mb-1' }).append($no_expand_sidebar_checkbox).append('<span>Main Sidebar disable hover/focus auto expand</span>')
+  $container.append($no_expand_sidebar_container)
+
+  var $text_sm_brand_checkbox = $('<input />', {
+    type: 'checkbox',
+    value: 1,
+    checked: $('.brand-link').hasClass('text-sm'),
+    class: 'mr-1'
+  }).on('click', function () {
+    if ($(this).is(':checked')) {
+      $('.brand-link').addClass('text-sm')
+    } else {
+      $('.brand-link').removeClass('text-sm')
+    }
+  })
+  var $text_sm_brand_container = $('<div />', { class: 'mb-4' }).append($text_sm_brand_checkbox).append('<span>Brand small text</span>')
+  $container.append($text_sm_brand_container)
+
+  $container.append('<h6>Navbar Variants</h6>')
+
+  var $navbar_variants = $('<div />', {
+    class: 'd-flex'
+  })
+  var navbar_all_colors = navbar_dark_skins.concat(navbar_light_skins)
+  var $navbar_variants_colors = createSkinBlock(navbar_all_colors, function () {
+    var color = $(this).data('color')
+    var $main_header = $('.main-header')
+    $main_header.removeClass('navbar-dark').removeClass('navbar-light')
+    navbar_all_colors.forEach(function (color) {
+      $main_header.removeClass(color)
+    })
+
+    if (navbar_dark_skins.indexOf(color) > -1) {
+      $main_header.addClass('navbar-dark')
+    } else {
+      $main_header.addClass('navbar-light')
+    }
+
+    $main_header.addClass(color)
+  })
+
+  $navbar_variants.append($navbar_variants_colors)
+
+  $container.append($navbar_variants)
+
+  var sidebar_colors = [
+    'bg-primary',
+    'bg-warning',
+    'bg-info',
+    'bg-danger',
+    'bg-success',
+    'bg-indigo',
+    'bg-lightblue',
+    'bg-navy',
+    'bg-purple',
+    'bg-fuchsia',
+    'bg-pink',
+    'bg-maroon',
+    'bg-orange',
+    'bg-lime',
+    'bg-teal',
+    'bg-olive'
+  ]
+
+  var accent_colors = [
+    'accent-primary',
+    'accent-warning',
+    'accent-info',
+    'accent-danger',
+    'accent-success',
+    'accent-indigo',
+    'accent-lightblue',
+    'accent-navy',
+    'accent-purple',
+    'accent-fuchsia',
+    'accent-pink',
+    'accent-maroon',
+    'accent-orange',
+    'accent-lime',
+    'accent-teal',
+    'accent-olive'
+  ]
+
+  var sidebar_skins = [
+    'sidebar-dark-primary',
+    'sidebar-dark-warning',
+    'sidebar-dark-info',
+    'sidebar-dark-danger',
+    'sidebar-dark-success',
+    'sidebar-dark-indigo',
+    'sidebar-dark-lightblue',
+    'sidebar-dark-navy',
+    'sidebar-dark-purple',
+    'sidebar-dark-fuchsia',
+    'sidebar-dark-pink',
+    'sidebar-dark-maroon',
+    'sidebar-dark-orange',
+    'sidebar-dark-lime',
+    'sidebar-dark-teal',
+    'sidebar-dark-olive',
+    'sidebar-light-primary',
+    'sidebar-light-warning',
+    'sidebar-light-info',
+    'sidebar-light-danger',
+    'sidebar-light-success',
+    'sidebar-light-indigo',
+    'sidebar-light-lightblue',
+    'sidebar-light-navy',
+    'sidebar-light-purple',
+    'sidebar-light-fuchsia',
+    'sidebar-light-pink',
+    'sidebar-light-maroon',
+    'sidebar-light-orange',
+    'sidebar-light-lime',
+    'sidebar-light-teal',
+    'sidebar-light-olive'
+  ]
+
+  $container.append('<h6>Accent Color Variants</h6>')
+  var $accent_variants = $('<div />', {
+    class: 'd-flex'
+  })
+  $container.append($accent_variants)
+  $container.append(createSkinBlock(accent_colors, function () {
+    var color = $(this).data('color')
+    var accent_class = color
+    var $body = $('body')
+    accent_colors.forEach(function (skin) {
+      $body.removeClass(skin)
+    })
+
+    $body.addClass(accent_class)
+  }))
+
+  $container.append('<h6>Dark Sidebar Variants</h6>')
+  var $sidebar_variants_dark = $('<div />', {
+    class: 'd-flex'
+  })
+  $container.append($sidebar_variants_dark)
+  $container.append(createSkinBlock(sidebar_colors, function () {
+    var color = $(this).data('color')
+    var sidebar_class = 'sidebar-dark-' + color.replace('bg-', '')
+    var $sidebar = $('.main-sidebar')
+    sidebar_skins.forEach(function (skin) {
+      $sidebar.removeClass(skin)
+    })
+
+    $sidebar.addClass(sidebar_class)
+  }))
+
+  $container.append('<h6>Light Sidebar Variants</h6>')
+  var $sidebar_variants_light = $('<div />', {
+    class: 'd-flex'
+  })
+  $container.append($sidebar_variants_light)
+  $container.append(createSkinBlock(sidebar_colors, function () {
+    var color = $(this).data('color')
+    var sidebar_class = 'sidebar-light-' + color.replace('bg-', '')
+    var $sidebar = $('.main-sidebar')
+    sidebar_skins.forEach(function (skin) {
+      $sidebar.removeClass(skin)
+    })
+
+    $sidebar.addClass(sidebar_class)
+  }))
+
+  var logo_skins = navbar_all_colors
+  $container.append('<h6>Brand Logo Variants</h6>')
+  var $logo_variants = $('<div />', {
+    class: 'd-flex'
+  })
+  $container.append($logo_variants)
+  var $clear_btn = $('<a />', {
+    href: '#'
+  }).text('clear').on('click', function (e) {
+    e.preventDefault()
+    var $logo = $('.brand-link')
+    logo_skins.forEach(function (skin) {
+      $logo.removeClass(skin)
+    })
+  })
+  $container.append(createSkinBlock(logo_skins, function () {
+    var color = $(this).data('color')
+    var $logo = $('.brand-link')
+    logo_skins.forEach(function (skin) {
+      $logo.removeClass(skin)
+    })
+    $logo.addClass(color)
+  }).append($clear_btn))
+
+  function createSkinBlock(colors, callback) {
+    var $block = $('<div />', {
+      class: 'd-flex flex-wrap mb-3'
+    })
+
+    colors.forEach(function (color) {
+      var $color = $('<div />', {
+        class: (typeof color === 'object' ? color.join(' ') : color).replace('navbar-', 'bg-').replace('accent-', 'bg-') + ' elevation-2'
+      })
+
+      $block.append($color)
+
+      $color.data('color', color)
+
+      $color.css({
+        width: '40px',
+        height: '20px',
+        borderRadius: '25px',
+        marginRight: 10,
+        marginBottom: 10,
+        opacity: 0.8,
+        cursor: 'pointer'
+      })
+
+      $color.hover(function () {
+        $(this).css({ opacity: 1 }).removeClass('elevation-2').addClass('elevation-4')
+      }, function () {
+        $(this).css({ opacity: 0.8 }).removeClass('elevation-4').addClass('elevation-2')
+      })
+
+      if (callback) {
+        $color.on('click', callback)
+      }
+    })
+
+    return $block
+  }
+
+  $('.product-image-thumb').on('click', function () {
+    var image_element = $(this).find('img')
+    $('.product-image').prop('src', $(image_element).attr('src'))
+    $('.product-image-thumb.active').removeClass('active')
+    $(this).addClass('active')
+  })
+})(jQuery)
