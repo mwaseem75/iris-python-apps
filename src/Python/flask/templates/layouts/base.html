@@ -13,7 +13,9 @@
   {% block stylesheets %}{% endblock stylesheets %}
 
 </head>
-<body class="hold-transition {% block body_class %}{% endblock body_class %}">
+<body class="hold-transition 
+<button onclick="alert('From base: {{ tot }} ')" />
+{% block body_class %}{% endblock body_class %}">
 <div class="wrapper">
 
     {% include 'includes/navigation.html' %}

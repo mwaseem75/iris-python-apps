@@ -1,9 +1,10 @@
-from flask import Flask, jsonify, request, make_response, render_template
+from flask import Flask, session, jsonify, request, make_response, render_template
 from definitions.passenger import Passenger
 import json
 import iris
 
-app = Flask(__name__)
+app = Flask(__name__) 
+app.secret_key = "abc222"
 
 # ----------------------------------------------------------------
 ### CRUD FOR TITANIC_TABLE.PASSENGER
@@ -18,11 +19,54 @@ def qrcode():
     
 @app.route("/processes")
 def processes():
-    return render_template('processes.html')    
+    #statement = iris.sql.exec('SELECT top 1 * FROM %SYS.ProcessQuery')
+    statement = iris.sql.exec('SELECT ID, NameSpace, Routine, LinesExecuted, GlobalReferences, State, PidExternal, UserName, ClientIPAddress FROM %SYS.ProcessQuery') 
+    df = statement.dataframe()
+    my_data=json.loads(df.to_json(orient="split"))["data"]
+    my_cols=[{"title": str(col)} for col in json.loads(df.to_json(orient="split"))["columns"]]
+    tot = len(df.index)
+    return render_template('processes.html',  tot = tot, my_data = my_data, my_cols = my_cols)    
 
 @app.route("/messages")
 def messages():
-    return render_template('messages.html') 
+
+    statement = iris.sql.exec('''SELECT TOP 250 
+	ID, 
+	Banked, 
+	BusinessProcessId, 
+	CorrespondingMessageId, 
+	Description, 
+	ErrorStatus, 
+	%EXTERNAL(Invocation) AS Invocation, 
+	CASE IsError 
+		WHEN 1 THEN 'Error' 
+		ELSE 'OK' END 
+		AS Error,
+	MessageBodyClassName,
+	MessageBodyId,
+	%EXTERNAL(Priority) AS Priority,
+	Resent,
+	ReturnQueueName,
+	SessionId,
+	%EXTERNAL(SourceBusinessType) AS SourceBusinessType,
+	SourceConfigName, 
+	%EXTERNAL(Status) AS Status,
+	SuperSession,
+	%EXTERNAL(TargetBusinessType) AS TargetBusinessType,
+	TargetConfigName, TargetQueueName,
+	{fn LEFT(%EXTERNAL(TimeCreated),10 )} AS DateCreated,
+	{fn RIGHT(%EXTERNAL(TimeCreated),12 )} AS TimeCreated, 
+	{fn LEFT(%EXTERNAL(TimeProcessed),10 )} AS DateProcessed,
+	{fn RIGHT(%EXTERNAL(TimeProcessed),12 )} AS TimeProcessed,  
+	%EXTERNAL(Type) AS Type 
+    FROM Ens.MessageHeader 
+    ORDER BY SessionId DESC''')
+    df = statement.dataframe()
+    my_data=json.loads(df.to_json(orient="split"))["data"]
+    my_cols=[{"title": str(col)} for col in json.loads(df.to_json(orient="split"))["columns"]]
+    tot = len(df.index)
+    return render_template('messages.html',  tot = tot, my_data = my_data, my_cols = my_cols)    
+   
 
 # GET all passengers
 @app.route("/api/passengers")

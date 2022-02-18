@@ -26,3 +26,4 @@
     do ##class(community.csvgen).Generate("/opt/irisapp/misc/titanic.csv",,"Titanic.Table.Passenger")
 
     do ##class(%EnsembleMgr).SetAutoStart("INTEROP", "resultVer.Production")
+    zn "%SYS"
