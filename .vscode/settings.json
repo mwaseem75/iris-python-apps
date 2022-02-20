@@ -14,7 +14,7 @@
       },
       "links": {
         "Notebooks": "http://localhost:8888",
-        "Wev Application": "http://localhost:4040",
+        "Web Application": "http://localhost:4040",
         "Management Portal": "http://localhost:52775/csp/sys/UtilHome.csp"
       },
       "active": true,
