@@ -1,6 +1,6 @@
-from flask import Flask, session, jsonify, request, make_response, render_template
+from flask import Flask, jsonify, request, make_response, render_template
 from definitions.passenger import Passenger
-import json
+import json, util
 import iris
 
 app = Flask(__name__) 
@@ -19,54 +19,94 @@ def qrcode():
     
 @app.route("/processes")
 def processes():
-    #statement = iris.sql.exec('SELECT top 1 * FROM %SYS.ProcessQuery')
-    statement = iris.sql.exec('SELECT ID, NameSpace, Routine, LinesExecuted, GlobalReferences, State, PidExternal, UserName, ClientIPAddress FROM %SYS.ProcessQuery') 
+    iris.cls("Embedded.Utils").SetNameSpace("USER")
+    statement = iris.sql.exec(util.get_sql_stat("processes")) 
     df = statement.dataframe()
     my_data=json.loads(df.to_json(orient="split"))["data"]
-    my_cols=[{"title": str(col)} for col in json.loads(df.to_json(orient="split"))["columns"]]
-    tot = len(df.index)
-    return render_template('processes.html',  tot = tot, my_data = my_data, my_cols = my_cols)    
+    my_cols=[{"title": str(col)} for col in json.loads(df.to_json(orient="split"))["columns"]]   
+    ftitle = "Processes"
+    fheading = "Currently runnung processes"
+    return render_template('tablesdata.html',  ftitle = ftitle, fheading = fheading, my_data = my_data, my_cols = my_cols)    
 
 @app.route("/messages")
 def messages():
-
-    statement = iris.sql.exec('''SELECT TOP 250 
-	ID, 
-	Banked, 
-	BusinessProcessId, 
-	CorrespondingMessageId, 
-	Description, 
-	ErrorStatus, 
-	%EXTERNAL(Invocation) AS Invocation, 
-	CASE IsError 
-		WHEN 1 THEN 'Error' 
-		ELSE 'OK' END 
-		AS Error,
-	MessageBodyClassName,
-	MessageBodyId,
-	%EXTERNAL(Priority) AS Priority,
-	Resent,
-	ReturnQueueName,
-	SessionId,
-	%EXTERNAL(SourceBusinessType) AS SourceBusinessType,
-	SourceConfigName, 
-	%EXTERNAL(Status) AS Status,
-	SuperSession,
-	%EXTERNAL(TargetBusinessType) AS TargetBusinessType,
-	TargetConfigName, TargetQueueName,
-	{fn LEFT(%EXTERNAL(TimeCreated),10 )} AS DateCreated,
-	{fn RIGHT(%EXTERNAL(TimeCreated),12 )} AS TimeCreated, 
-	{fn LEFT(%EXTERNAL(TimeProcessed),10 )} AS DateProcessed,
-	{fn RIGHT(%EXTERNAL(TimeProcessed),12 )} AS TimeProcessed,  
-	%EXTERNAL(Type) AS Type 
-    FROM Ens.MessageHeader 
-    ORDER BY SessionId DESC''')
+    iris.cls("Embedded.Utils").SetNameSpace("USER")
+    statement = iris.sql.exec(util.get_sql_stat("messages")) 
     df = statement.dataframe()
     my_data=json.loads(df.to_json(orient="split"))["data"]
     my_cols=[{"title": str(col)} for col in json.loads(df.to_json(orient="split"))["columns"]]
-    tot = len(df.index)
-    return render_template('messages.html',  tot = tot, my_data = my_data, my_cols = my_cols)    
+    ftitle = "Messages"
+    fheading = "Production Messages"
+    return render_template('tablesdata.html',  ftitle = ftitle, fheading = fheading, my_data = my_data, my_cols = my_cols)    
    
+@app.route("/securityusers")
+def securityusers():
+    iris.cls("Embedded.Utils").SetNameSpace("%SYS")
+    statement = iris.sql.exec(util.get_sql_stat("securityusers")) 
+    df = statement.dataframe()
+    my_data=json.loads(df.to_json(orient="split"))["data"]
+    my_cols=[{"title": str(col)} for col in json.loads(df.to_json(orient="split"))["columns"]]
+    ftitle = "Users"
+    fheading = "Security Users"
+    return render_template('tablesdata.html',  ftitle = ftitle, fheading = fheading, my_data = my_data, my_cols = my_cols)    
+
+@app.route("/securityapps")
+def securityapps():
+    iris.cls("Embedded.Utils").SetNameSpace("%SYS")
+    statement = iris.sql.exec(util.get_sql_stat("securityapps")) 
+    df = statement.dataframe()
+    my_data=json.loads(df.to_json(orient="split"))["data"]
+    my_cols=[{"title": str(col)} for col in json.loads(df.to_json(orient="split"))["columns"]]
+    ftitle = "Applications"
+    fheading = "Created Applications"
+    return render_template('tablesdata.html',  ftitle = ftitle, fheading = fheading, my_data = my_data, my_cols = my_cols)    
+
+@app.route("/elinfo")
+def elinfo():
+    iris.cls("Embedded.Utils").SetNameSpace("USER")
+    statement = iris.sql.exec(util.get_sql_stat("elinfo"))  
+    df = statement.dataframe()
+    my_data=json.loads(df.to_json(orient="split"))["data"]
+    my_cols=[{"title": str(col)} for col in json.loads(df.to_json(orient="split"))["columns"]]
+    ftitle = "Info"
+    fheading = "Event Log Info"
+    return render_template('tablesdata.html',  ftitle = ftitle, fheading = fheading, my_data = my_data, my_cols = my_cols)    
+@app.route("/elalert")
+def elalert():
+    statement = iris.sql.exec(util.get_sql_stat("elalert")) 
+    df = statement.dataframe()
+    my_data=json.loads(df.to_json(orient="split"))["data"]
+    my_cols=[{"title": str(col)} for col in json.loads(df.to_json(orient="split"))["columns"]]
+    ftitle = "Alert"
+    fheading = "Event Log Alert"
+    return render_template('tablesdata.html',  ftitle = ftitle, fheading = fheading, my_data = my_data, my_cols = my_cols)    
+@app.route("/elwarning")
+def elwarning():
+    statement = iris.sql.exec(util.get_sql_stat("elwarning")) 
+    df = statement.dataframe()
+    my_data=json.loads(df.to_json(orient="split"))["data"]
+    my_cols=[{"title": str(col)} for col in json.loads(df.to_json(orient="split"))["columns"]]
+    ftitle = "Warning"
+    fheading = "Event Log Warning"
+    return render_template('tablesdata.html',  ftitle = ftitle, fheading = fheading, my_data = my_data, my_cols = my_cols)    
+@app.route("/elerror")
+def elerror():
+    statement = iris.sql.exec(util.get_sql_stat("elerror")) 
+    df = statement.dataframe()
+    my_data=json.loads(df.to_json(orient="split"))["data"]
+    my_cols=[{"title": str(col)} for col in json.loads(df.to_json(orient="split"))["columns"]]
+    ftitle = "Error"
+    fheading = "Event Log Error"
+    return render_template('tablesdata.html',  ftitle = ftitle, fheading = fheading, my_data = my_data, my_cols = my_cols)    
+
+
+
+
+
+
+
+
+
 
 # GET all passengers
 @app.route("/api/passengers")

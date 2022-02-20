@@ -22,7 +22,7 @@ USER ${ISC_PACKAGE_MGRUSER}
 
 # Copy source files to image
 COPY . /opt/irisapp
-COPY  Installer.cls .
+#COPY  Installer.cls .
 # load demo stuff
 RUN iris start IRIS \
 	&& iris session IRIS < /opt/irisapp/iris.script && iris stop IRIS quietly

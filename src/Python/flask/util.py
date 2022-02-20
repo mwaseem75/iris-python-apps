@@ -1,29 +1,58 @@
-# -*- encoding: utf-8 -*-
-"""
-Copyright (c) 2019 - present AppSeed.us
-"""
- 
-import hashlib, binascii, os
-
-# Inspiration -> https://www.vitoshacademy.com/hashing-passwords-in-python/
-
-def hash_pass( password ):
-    """Hash a password for storing."""
-    salt = hashlib.sha256(os.urandom(60)).hexdigest().encode('ascii')
-    pwdhash = hashlib.pbkdf2_hmac('sha512', password.encode('utf-8'), 
-                                salt, 100000)
-    pwdhash = binascii.hexlify(pwdhash)
-    return (salt + pwdhash) # return bytes
-
-def verify_pass(provided_password, stored_password):
-    """Verify a stored password against one provided by user"""
-    stored_password = stored_password.decode('ascii')
-    salt = stored_password[:64]
-    stored_password = stored_password[64:]
-    pwdhash = hashlib.pbkdf2_hmac('sha512', 
-                                  provided_password.encode('utf-8'), 
-                                  salt.encode('ascii'), 
-                                  100000)
-    pwdhash = binascii.hexlify(pwdhash).decode('ascii')
-    return pwdhash == stored_password
-
+def get_sql_stat( id ):
+	if id == 'processes':
+		statement = '''
+        SELECT ID, NameSpace, Routine, LinesExecuted, GlobalReferences, 
+               state, PidExternal, UserName, ClientIPAddress FROM %SYS.ProcessQuery        
+        '''
+	elif id == 'messages':
+		statement = '''
+        SELECT TOP 250 
+		ID, 
+		Banked, 
+		BusinessProcessId, 
+		CorrespondingMessageId, 
+		Description, 
+		ErrorStatus, 
+		%EXTERNAL(Invocation) AS Invocation, 
+		CASE IsError 
+			WHEN 1 THEN 'Error' 
+			ELSE 'OK' END 
+			AS Error,
+		MessageBodyClassName,
+		MessageBodyId,
+		%EXTERNAL(Priority) AS Priority,
+		Resent,
+		ReturnQueueName,
+		SessionId,
+		%EXTERNAL(SourceBusinessType) AS SourceBusinessType,
+		SourceConfigName, 
+		%EXTERNAL(Status) AS Status,
+		SuperSession,
+		%EXTERNAL(TargetBusinessType) AS TargetBusinessType,
+		TargetConfigName, TargetQueueName,
+		{fn LEFT(%EXTERNAL(TimeCreated),10 )} AS DateCreated,
+		{fn RIGHT(%EXTERNAL(TimeCreated),12 )} AS TimeCreated, 
+		{fn LEFT(%EXTERNAL(TimeProcessed),10 )} AS DateProcessed,
+		{fn RIGHT(%EXTERNAL(TimeProcessed),12 )} AS TimeProcessed,  
+		%EXTERNAL(Type) AS Type 
+		FROM Ens.MessageHeader 
+		ORDER BY SessionId DESC '''   
+	elif id == 'securityusers':
+		statement =  '''SELECT 
+		ID, AccountNeverExpires, AutheEnabled, ChangePassword, {fn LEFT(%EXTERNAL(CreateDateTime),10 )} AS DateCreated, Enabled, ExpirationDate, Flags, Name
+		FROM Security.Users'''
+	elif id == 'securityapps':
+		statement =  '''SELECT 
+		ID, AutheEnabled, AutoCompile, CSPZENEnabled, CSRFToken, CookiePath, DeepSeeEnabled, Description, DispatchClass, Enabled, Name, NameLowerCase, NameSpace
+		FROM Security.Applications'''            
+	elif id == 'elinfo':
+		statement = "SELECT id, configname,job,messageid,sessionid,sourceclass,	sourcemethod,text,timelogged FROM Ens_Util.Log where type = 4"
+	elif id == 'elalert':
+		statement = "SELECT id, configname,job,messageid,sessionid,sourceclass,	sourcemethod,text,timelogged FROM Ens_Util.Log where type = 6"
+	elif id == 'elwarning':
+		statement = "SELECT id, configname,job,messageid,sessionid,sourceclass,	sourcemethod,text,timelogged FROM Ens_Util.Log where type = 3"
+	elif id == 'elError':
+		statement = "SELECT id, configname,job,messageid,sessionid,sourceclass,	sourcemethod,text,timelogged FROM Ens_Util.Log where type = 2"
+	
+	
+	return statement	
