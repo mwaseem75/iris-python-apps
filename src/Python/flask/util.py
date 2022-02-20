@@ -1,3 +1,5 @@
+import iris
+
 def get_sql_stat( id ):
 	if id == 'processes':
 		statement = '''
@@ -56,3 +58,12 @@ def get_sql_stat( id ):
 	
 	
 	return statement	
+
+#Get dashboard statistics
+def get_dashboard_stats( ):
+	iris.cls("Embedded.Utils").SetNameSpace("%SYS")
+	ref = iris.cls("SYS.Stats.Dashboard").Sample()
+	aurg1 = ref.ApplicationErrors
+	aurg2 = 44
+	content = {'thing':aurg1,'thnig2':aurg2}
+	return 3

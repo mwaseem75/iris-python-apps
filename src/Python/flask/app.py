@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request, make_response, render_template
 from definitions.passenger import Passenger
-import json, util
+import json,util
 import iris
 
 app = Flask(__name__) 
@@ -11,7 +11,9 @@ app.secret_key = "abc222"
 # ----------------------------------------------------------------
 @app.route("/")
 def index():
-    return render_template('index.html')
+    
+    content = util.get_dashboard_stats()
+    return render_template('index.html', content = content)
 
 @app.route("/qrcode")
 def qrcode():
