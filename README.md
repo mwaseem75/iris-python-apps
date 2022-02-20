@@ -22,7 +22,7 @@ docker-compose up -d
 
 To run the application Navigate to http://localhost:4040 
 
-##Credits
+## Credits
 This application is derived from the below iris-python-examples template by @Guillaume Rongier 
 https://openexchange.intersystems.com/package/iris-python-examples
 
