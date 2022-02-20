@@ -20,5 +20,9 @@ docker-compose build
 docker-compose up -d 
 ```
 
-Navigate to http://localhost:4040 to run the applicationhe mp3 file, like picture above
+To run the application Navigate to http://localhost:4040 
+
+##Credits
+This application is derived from the below iris-python-examples template by @Guillaume Rongier 
+https://openexchange.intersystems.com/package/iris-python-examples
 
