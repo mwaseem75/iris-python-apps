@@ -63,7 +63,40 @@ def get_sql_stat( id ):
 def get_dashboard_stats( ):
 	iris.cls("Embedded.Utils").SetNameSpace("%SYS")
 	ref = iris.cls("SYS.Stats.Dashboard").Sample()
-	aurg1 = ref.ApplicationErrors
-	aurg2 = 44
-	content = {'thing':aurg1,'thnig2':aurg2}
-	return 3
+	
+	content = {
+		'ApplicationErrors':ref.ApplicationErrors,
+		'CSPSessions':ref.CSPSessions,
+		'CacheEfficiency':ref.CacheEfficiency,
+		'DatabaseSpace' : ref.DatabaseSpace,
+		'DiskReads' : ref.DiskReads,
+		'DiskWrites' : ref.DiskWrites,
+		'ECPAppServer' : ref.ECPAppServer,
+		'ECPAppSrvRate' : ref.ECPAppSrvRate,
+		'ECPDataServer' : ref.ECPDataServer,
+		'ECPDataSrvRate' : ref.ECPDataSrvRate,
+		'GloRefs' : ref.GloRefs,
+		'GloRefsPerSec' : ref.GloRefsPerSec,
+		'GloSets' : ref.GloSets,
+		'JournalEntries' : ref.JournalEntries,
+		'JournalSpace' : ref.JournalSpace,
+		'JournalStatus' : ref.JournalStatus,
+		'LastBackup' : ref.LastBackup,
+		'LicenseCurrent' : ref.LicenseCurrent,
+		'LicenseCurrentPct' : ref.LicenseCurrentPct,
+		'LicenseHigh' : ref.LicenseHigh,
+		'LicenseHighPct' : ref.LicenseHighPct,
+		'LicenseLimit' : ref.LicenseLimit,
+		'LicenseType' : ref.LicenseType,
+		'LockTable' : ref.LockTable,
+		'LogicalReads' : ref.LogicalReads,
+		'Processes' : ref.Processes,
+		'RouRefs' : ref.RouRefs,
+		'SeriousAlerts' : ref.SeriousAlerts,
+		'ShadowServer' : ref.ShadowServer,
+		'ShadowSource' : ref.ShadowSource,
+		'SystemUpTime' : ref.SystemUpTime,
+		'WriteDaemon' :  ref.WriteDaemon	
+		}
+
+	return content
