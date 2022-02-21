@@ -63,25 +63,28 @@ def securityapps():
     fheading = "Created Applications"
     return render_template('tablesdata.html',  ftitle = ftitle, fheading = fheading, my_data = my_data, my_cols = my_cols)    
 
-@app.route("/elinfo")
-def elinfo():
+@app.route("/elassert")
+def elassert():
     iris.cls("Embedded.Utils").SetNameSpace("USER")
-    statement = iris.sql.exec(util.get_sql_stat("elinfo"))  
+    statement = iris.sql.exec(util.get_sql_stat("elassert"))  
     df = statement.dataframe()
     my_data=json.loads(df.to_json(orient="split"))["data"]
     my_cols=[{"title": str(col)} for col in json.loads(df.to_json(orient="split"))["columns"]]
-    ftitle = "Info"
-    fheading = "Event Log Info"
+    ftitle = "Assert"
+    fheading = "Event Log Assert"
     return render_template('tablesdata.html',  ftitle = ftitle, fheading = fheading, my_data = my_data, my_cols = my_cols)    
-@app.route("/elalert")
-def elalert():
-    statement = iris.sql.exec(util.get_sql_stat("elalert")) 
+
+@app.route("/elerror")
+def elerror():
+    iris.cls("Embedded.Utils").SetNameSpace("USER")
+    statement = iris.sql.exec(util.get_sql_stat("elerror"))  
     df = statement.dataframe()
     my_data=json.loads(df.to_json(orient="split"))["data"]
     my_cols=[{"title": str(col)} for col in json.loads(df.to_json(orient="split"))["columns"]]
-    ftitle = "Alert"
-    fheading = "Event Log Alert"
+    ftitle = "Error"
+    fheading = "Event Log Error"
     return render_template('tablesdata.html',  ftitle = ftitle, fheading = fheading, my_data = my_data, my_cols = my_cols)    
+
 @app.route("/elwarning")
 def elwarning():
     statement = iris.sql.exec(util.get_sql_stat("elwarning")) 
@@ -91,24 +94,36 @@ def elwarning():
     ftitle = "Warning"
     fheading = "Event Log Warning"
     return render_template('tablesdata.html',  ftitle = ftitle, fheading = fheading, my_data = my_data, my_cols = my_cols)    
-@app.route("/elerror")
-def elerror():
-    statement = iris.sql.exec(util.get_sql_stat("elerror")) 
+    
+@app.route("/elinfo")
+def elinfo():
+    statement = iris.sql.exec(util.get_sql_stat("elinfo")) 
     df = statement.dataframe()
     my_data=json.loads(df.to_json(orient="split"))["data"]
     my_cols=[{"title": str(col)} for col in json.loads(df.to_json(orient="split"))["columns"]]
-    ftitle = "Error"
-    fheading = "Event Log Error"
+    ftitle = "Info"
+    fheading = "Event Log Info"
     return render_template('tablesdata.html',  ftitle = ftitle, fheading = fheading, my_data = my_data, my_cols = my_cols)    
 
+@app.route("/eltrace")
+def eltrace():
+    statement = iris.sql.exec(util.get_sql_stat("eltrace")) 
+    df = statement.dataframe()
+    my_data=json.loads(df.to_json(orient="split"))["data"]
+    my_cols=[{"title": str(col)} for col in json.loads(df.to_json(orient="split"))["columns"]]
+    ftitle = "Trace"
+    fheading = "Event Log Trace"
+    return render_template('tablesdata.html',  ftitle = ftitle, fheading = fheading, my_data = my_data, my_cols = my_cols)    
 
-
-
-
-
-
-
-
+app.route("/elalert")
+def elalert():
+    statement = iris.sql.exec(util.get_sql_stat("elalert")) 
+    df = statement.dataframe()
+    my_data=json.loads(df.to_json(orient="split"))["data"]
+    my_cols=[{"title": str(col)} for col in json.loads(df.to_json(orient="split"))["columns"]]
+    ftitle = "Alert"
+    fheading = "Event Log Alert"
+    return render_template('tablesdata.html',  ftitle = ftitle, fheading = fheading, my_data = my_data, my_cols = my_cols)    
 
 # GET all passengers
 @app.route("/api/passengers")
