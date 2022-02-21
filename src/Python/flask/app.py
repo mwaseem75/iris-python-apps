@@ -115,8 +115,8 @@ def eltrace():
     fheading = "Event Log Trace"
     return render_template('tablesdata.html',  ftitle = ftitle, fheading = fheading, my_data = my_data, my_cols = my_cols)    
 
-app.route("/elalert")
-def elalert():
+@app.route("/elevent")
+def elevent():
     statement = iris.sql.exec(util.get_sql_stat("elalert")) 
     df = statement.dataframe()
     my_data=json.loads(df.to_json(orient="split"))["data"]
@@ -124,6 +124,7 @@ def elalert():
     ftitle = "Alert"
     fheading = "Event Log Alert"
     return render_template('tablesdata.html',  ftitle = ftitle, fheading = fheading, my_data = my_data, my_cols = my_cols)    
+
 
 # GET all passengers
 @app.route("/api/passengers")
