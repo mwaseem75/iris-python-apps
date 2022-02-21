@@ -34,65 +34,46 @@
 {% block content %}
   
   <div class="content-wrapper">
-
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Dashboard</h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard v1</li>
-            </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
-
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         <div class="row">
-          <div class="col-lg-3 col-6">
+          <div class="col-lg-2 col-6">
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>150</h3>
+                <h3>{{ content.tot_pro }}</h3>
 
                 <p>Processes</p>
               </div>
               <div class="icon">
-                <i class="ion ion-bag"></i>
+                <i class="ion ion-ios-photos"></i>
               </div>
               <a href="/processes" class="small-box-footer">View Details <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
-          <div class="col-lg-3 col-6">
+          <div class="col-lg-2 col-6">
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>53<sup style="font-size: 20px"></sup></h3>
+                <h3>{{ content.tot_msg }}<sup style="font-size: 20px"></sup></h3>
 
                 <p>Messages</p>
               </div>
               <div class="icon">
-                <i class="ion ion-stats-bars"></i>
+                <i class="ion ion-android-chat"></i>
               </div>
               <a href="/messages" class="small-box-footer">View Details <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
-          <div class="col-lg-3 col-6">
+          <div class="col-lg-2 col-6">
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>44</h3>
+                <h3>{{ content.tot_usr }}</h3>
 
                 <p>Security Users</p>
               </div>
@@ -103,16 +84,44 @@
             </div>
           </div>
           <!-- ./col -->
-          <div class="col-lg-3 col-6">
+          <div class="col-lg-2 col-6">
             <!-- small box -->
-            <div class="small-box bg-danger">
+            <div class="small-box bg-success">
               <div class="inner">
-                <h3>65</h3>
+                <h3>{{ content.tot_apps }}</h3>
 
                 <p>Applications</p>
               </div>
               <div class="icon">
-                <i class="ion ion-pie-graph"></i>
+                <i class="ion ion-android-apps"></i>
+              </div>
+              <a href="/securityapps" class="small-box-footer">View Details <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-2 col-6">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <h3>{{ content.SystemUpTime }}</h3>
+
+                <p>System Up Time</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-android-alarm-clock"></i>
+              </div>
+              <a href="/securityapps" class="small-box-footer">View Details <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-2 col-6">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <h3>{{ content.LastBackup }}</h3>
+
+                <p>Last Backup</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-android-list"></i>
               </div>
               <a href="/securityapps" class="small-box-footer">View Details <i class="fas fa-arrow-circle-right"></i></a>
             </div>
@@ -129,15 +138,15 @@
                       <!-- Boxes-->
           <!-- Info boxes -->
         <div class="row">
-          <div class="col-12 col-sm-6 col-md-3">
+          <div class="col-12 col-sm-6 col-md-2">
             <div class="info-box">
-              <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
+              <span class="info-box-icon bg-info elevation-1"><i class="fas fa-database"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">CPU Traffic</span>
+                <span class="info-box-text">Database Space</span>
                 <span class="info-box-number">
-                  10
-                  <small>%</small>
+                 {{ content.DatabaseSpace }}
+                  
                 </span>
               </div>
               <!-- /.info-box-content -->
@@ -145,13 +154,13 @@
             <!-- /.info-box -->
           </div>
           <!-- /.col -->
-          <div class="col-12 col-sm-6 col-md-3">
+          <div class="col-12 col-sm-6 col-md-2">
             <div class="info-box mb-3">
-              <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></span>
+              <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-server"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Likes</span>
-                <span class="info-box-number">41,410</span>
+                <span class="info-box-text">Database Journal</span>
+                <span class="info-box-number">{{ content.JournalStatus }}</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -162,26 +171,50 @@
           <!-- fix for small devices only -->
           <div class="clearfix hidden-md-up"></div>
 
-          <div class="col-12 col-sm-6 col-md-3">
+          <div class="col-12 col-sm-6 col-md-2">
             <div class="info-box mb-3">
-              <span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></span>
+              <span class="info-box-icon bg-success elevation-1"><i class="fas fa-server"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Sales</span>
-                <span class="info-box-number">760</span>
+                <span class="info-box-text">Journal Space</span>
+                <span class="info-box-number">{{ content.JournalSpace }}</span>
               </div>
               <!-- /.info-box-content -->
             </div>
             <!-- /.info-box -->
           </div>
           <!-- /.col -->
-          <div class="col-12 col-sm-6 col-md-3">
+          <div class="col-12 col-sm-6 col-md-2">
             <div class="info-box mb-3">
-              <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
+              <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-server"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">New Members</span>
-                <span class="info-box-number">2,000</span>
+                <span class="info-box-text">Journal Entries</span>
+                <span class="info-box-number">{{ content.JournalEntries }}</span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <div class="col-12 col-sm-6 col-md-2">
+            <div class="info-box mb-3">
+              <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-lock"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Lock Table</span>
+                <span class="info-box-number">{{ content.LockTable }}</span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <div class="col-12 col-sm-6 col-md-2">
+            <div class="info-box mb-3">
+              <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-window-maximize"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Web Sessions</span>
+                <span class="info-box-number">{{ content.CSPSessions }}</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -213,7 +246,7 @@
                       <!-- /.progress-group -->
                       <div class="progress-group">
                         <span class="progress-text">licensing Limit</span>
-                        <span class="float-right"><b>5</b></span>
+                        <span class="float-right"><b>{{ content.LicenseCurrent }}</b></span>
                         <div class="progress progress-sm">
                           <div class="progress-bar bg-success" style="width: 100%"></div>
                         </div>
@@ -222,40 +255,40 @@
 
                       <div class="progress-group">
                         Current License Use
-                        <span class="float-right"><b>4</b>/6</span>
+                        <span class="float-right"><b>{{ content.LicenseCurrentPct }}%</b></span>
                         <div class="progress progress-sm">
-                          <div class="progress-bar bg-primary" style="width: 60%"></div>
+                          <div class="progress-bar bg-primary" style="width: {{ content.LicenseCurrentPct }}%"></div>
                         </div>
                       </div>
                       <!-- /.progress-group -->
   
                       <div class="progress-group">
-                        Heighest License Use
-                        <span class="float-right"><b>4</b>/6</span>
+                        Heighest License Use  
+                        <span class="float-right"><b>{{ content.LicenseHighPct }}%</b></span>
                         <div class="progress progress-sm">
-                          <div class="progress-bar bg-danger" style="width: 60%"></div>
+                          <div class="progress-bar bg-danger" style="width: {{ content.LicenseCurrentPct }}%"></div>
                         </div>
                       </div>
   
                       <div class="progress-group">
-                        System Up Time
-                        <span class="float-right"><b>4</b>/6</span>
+                        Serious Alerts
+                        <span class="float-right"><b>{{ content.SeriousAlerts }}</b></span>
                         <div class="progress progress-sm">
-                          <div class="progress-bar bg-danger" style="width: 60%"></div>
+                          <div class="progress-bar bg-danger" style="width: 100%"></div>
                         </div>
                       </div>
   
                       <div class="progress-group">
-                        Last Backup
-                        <span class="float-right"><b>4</b>/6</span>
+                        Application Errors
+                        <span class="float-right"><b>{{ content.ApplicationErrors }}</b></span>
                         <div class="progress progress-sm">
-                          <div class="progress-bar bg-danger" style="width: 60%"></div>
+                          <div class="progress-bar bg-danger" style="width: 100%"></div>
                         </div>
                       </div>
                       <!-- /.progress-group -->
                       <div class="progress-group">
-                        Security Alerts
-                        <span class="float-right"><b>0</span>
+                        Write Daemon
+                        <span class="float-right"><b>{{ content.WriteDaemon }}</b></span>
                         <div class="progress progress-sm">
                           <div class="progress-bar bg-warning" style="width: 100%"></div>
                         </div>
@@ -263,10 +296,17 @@
                      
                       <!-- /.progress-group -->
                       <div class="progress-group">
-                        Application Error
-                        <span class="float-right"><b>1</span>
+                        Disk Reads
+                        <span class="float-right"><b>{{ content.DiskReads }}</b></span>
                         <div class="progress progress-sm">
-                          <div class="progress-bar bg-warning" style="width: 100%"></div>
+                          <div class="progress-bar bg-info" style="width: 100%"></div>
+                        </div>
+                      </div>
+                      <div class="progress-group">
+                        Disk Writes
+                        <span class="float-right"><b>{{ content.DiskWrites }}</b></span>
+                        <div class="progress progress-sm">
+                          <div class="progress-bar bg-info" style="width: 100%"></div>
                         </div>
                       </div>
                       <!-- /.progress-group -->
@@ -275,13 +315,14 @@
                   </div>
                   <!-- /.row -->
                 </div>
+            
                 <!-- ./card-body -->
                 <div class="card-footer">
                   <div class="row">
                     <div class="col-sm-2 col-6">
                       <div class="description-block border-right">
                        
-                        <h5 class="description-header">52.00</h5>
+                        <h5 class="description-header">{{ content.GloRefsPerSec }}</h5>
                         <span class="description-text">Globals/Second</span>
                       </div>
                       <!-- /.description-block -->
@@ -290,7 +331,7 @@
                     <div class="col-sm-2 col-6">
                       <div class="description-block border-right">
                        
-                        <h5 class="description-header">10,390.90</h5>
+                        <h5 class="description-header">{{ content.GloRefs }}</h5>
                         <span class="description-text">Global Refs</span>
                       </div>
                       <!-- /.description-block -->
@@ -299,7 +340,7 @@
                     <div class="col-sm-2 col-6">
                       <div class="description-block border-right">
                         
-                        <h5 class="description-header">24,813.53</h5>
+                        <h5 class="description-header">{{ content.GloSets }}</h5>
                         <span class="description-text">Global Sets</span>
                       </div>
                       <!-- /.description-block -->
@@ -308,15 +349,15 @@
                     <div class="col-sm-2 col-6">
                       <div class="description-block">
                        
-                        <h5 class="description-header">1200</h5>
+                        <h5 class="description-header">{{ content.RouRefs }}</h5>
                         <span class="description-text">Routine Refs</span>
                       </div>
                       <!-- /.description-block -->
                     </div>
                     <div class="col-sm-2 col-6">
                       <div class="description-block">
-                       
-                        <h5 class="description-header">1200</h5>
+                        
+                        <h5 class="description-header">{{ content.LogicalReads }}</h5>
                         <span class="description-text">Logical Requests</span>
                       </div>
                       <!-- /.description-block -->
@@ -324,7 +365,7 @@
                     <div class="col-sm-2 col-6">
                       <div class="description-block">
                         
-                        <h5 class="description-header">1200</h5>
+                        <h5 class="description-header">{{ content.CacheEfficiency }}</h5>
                         <span class="description-text">Cache Efficiency</span>
                       </div>
                       <!-- /.description-block -->
@@ -538,5 +579,273 @@
   <script src="/static/assets/js/pages/dashboard.js"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="/static/assets/js/demo.js"></script>
+
+
+<script>
+  $(function () {
+    'use strict'
+  
+    // Make the dashboard widgets sortable Using jquery UI
+    $('.connectedSortable').sortable({
+      placeholder: 'sort-highlight',
+      connectWith: '.connectedSortable',
+      handle: '.card-header, .nav-tabs',
+      forcePlaceholderSize: true,
+      zIndex: 999999
+    })
+    $('.connectedSortable .card-header').css('cursor', 'move')
+  
+    // jQuery UI sortable for the todo list
+    $('.todo-list').sortable({
+      placeholder: 'sort-highlight',
+      handle: '.handle',
+      forcePlaceholderSize: true,
+      zIndex: 999999
+    })
+  
+    // bootstrap WYSIHTML5 - text editor
+    $('.textarea').summernote()
+  
+    $('.daterange').daterangepicker({
+      ranges: {
+        Today: [moment(), moment()],
+        Yesterday: [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+        'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+        'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+        'This Month': [moment().startOf('month'), moment().endOf('month')],
+        'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+      },
+      startDate: moment().subtract(29, 'days'),
+      endDate: moment()
+    }, function (start, end) {
+      // eslint-disable-next-line no-alert
+      alert('You chose: ' + start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
+    })
+  
+    /* jQueryKnob */
+    $('.knob').knob()
+  
+    // jvectormap data
+    var visitorsData = {
+      US: 398, // USA
+      SA: 400, // Saudi Arabia
+      CA: 1000, // Canada
+      DE: 500, // Germany
+      FR: 760, // France
+      CN: 300, // China
+      AU: 700, // Australia
+      BR: 600, // Brazil
+      IN: 800, // India
+      GB: 320, // Great Britain
+      RU: 3000 // Russia
+    }
+    // World map by jvectormap
+    $('#world-map').vectorMap({
+      map: 'usa_en',
+      backgroundColor: 'transparent',
+      regionStyle: {
+        initial: {
+          fill: 'rgba(255, 255, 255, 0.7)',
+          'fill-opacity': 1,
+          stroke: 'rgba(0,0,0,.2)',
+          'stroke-width': 1,
+          'stroke-opacity': 1
+        }
+      },
+      series: {
+        regions: [{
+          values: visitorsData,
+          scale: ['#ffffff', '#0154ad'],
+          normalizeFunction: 'polynomial'
+        }]
+      },
+      onRegionLabelShow: function (e, el, code) {
+        if (typeof visitorsData[code] !== 'undefined') {
+          el.html(el.html() + ': ' + visitorsData[code] + ' new visitors')
+        }
+      }
+    })
+  
+    // Sparkline charts
+    var sparkline1 = new Sparkline($('#sparkline-1')[0], { width: 80, height: 50, lineColor: '#92c1dc', endColor: '#ebf4f9' })
+    var sparkline2 = new Sparkline($('#sparkline-2')[0], { width: 80, height: 50, lineColor: '#92c1dc', endColor: '#ebf4f9' })
+    var sparkline3 = new Sparkline($('#sparkline-3')[0], { width: 80, height: 50, lineColor: '#92c1dc', endColor: '#ebf4f9' })
+  
+    sparkline1.draw([1000, 1200, 920, 927, 931, 1027, 819, 930, 1021])
+    sparkline2.draw([515, 519, 520, 522, 652, 810, 370, 627, 319, 630, 921])
+    sparkline3.draw([15, 19, 20, 22, 33, 27, 31, 27, 19, 30, 21])
+  
+    // The Calender
+    $('#calendar').datetimepicker({
+      format: 'L',
+      inline: true
+    })
+  
+    // SLIMSCROLL FOR CHAT WIDGET
+    $('#chat-box').overlayScrollbars({
+      height: '250px'
+    })
+  
+    /* Chart.js Charts */
+    // Sales chart
+    var salesChartCanvas = document.getElementById('revenue-chart-canvas').getContext('2d')
+    // $('#revenue-chart').get(0).getContext('2d');
+    let my_assert = JSON.parse('{{ content.tot_ev_assert | tojson }}');
+    let my_error = JSON.parse('{{ content.tot_ev_error | tojson }}');
+    let my_warning = JSON.parse('{{ content.tot_ev_warning | tojson }}');
+    let my_info = JSON.parse('{{ content.tot_ev_info | tojson }}');
+    let my_trace = JSON.parse('{{ content.tot_ev_trace | tojson }}');
+    let my_alert = JSON.parse('{{ content.tot_ev_alert | tojson }}');
+
+    var salesChartData = {
+      labels: ['Alert', 'Error', 'Warning', 'Info', 'Trace', 'Alert'],
+      datasets: [
+        {
+          label: 'Digital Goods',
+          backgroundColor: 'rgba(60,141,188,0.9)',
+          borderColor: 'rgba(60,141,188,0.8)',
+          pointRadius: false,
+          pointColor: '#3b8bba',
+          pointStrokeColor: 'rgba(60,141,188,1)',
+          pointHighlightFill: '#fff',
+          pointHighlightStroke: 'rgba(60,141,188,1)',
+          data: [my_assert, my_error, my_warning, my_info, my_trace, my_alert]
+        },
+        {
+          label: 'Electronics',
+          backgroundColor: 'rgba(210, 214, 222, 1)',
+          borderColor: 'rgba(210, 214, 222, 1)',
+          pointRadius: false,
+          pointColor: 'rgba(210, 214, 222, 1)',
+          pointStrokeColor: '#c1c7d1',
+          pointHighlightFill: '#fff',
+          pointHighlightStroke: 'rgba(220,220,220,1)',
+          data: [my_assert + 5 , my_error + 5, my_warning + 5, my_info + 5, my_trace + 5, my_alert + 5]
+        }
+      ]
+    }
+  
+    var salesChartOptions = {
+      maintainAspectRatio: false,
+      responsive: true,
+      legend: {
+        display: false
+      },
+      scales: {
+        xAxes: [{
+          gridLines: {
+            display: false
+          }
+        }],
+        yAxes: [{
+          gridLines: {
+            display: false
+          }
+        }]
+      }
+    }
+  
+    // This will get the first returned node in the jQuery collection.
+    // eslint-disable-next-line no-unused-vars
+    var salesChart = new Chart(salesChartCanvas, {
+      type: 'line',
+      data: salesChartData,
+      options: salesChartOptions
+    })
+  
+    // Donut Chart
+    var pieChartCanvas = $('#sales-chart-canvas').get(0).getContext('2d')
+    var pieData = {
+      labels: [
+        'Instore Sales',
+        'Download Sales',
+        'Mail-Order Sales'
+      ],
+      datasets: [
+        {
+          data: [30, 12, 20],
+          backgroundColor: ['#f56954', '#00a65a', '#f39c12']
+        }
+      ]
+    }
+    var pieOptions = {
+      legend: {
+        display: false
+      },
+      maintainAspectRatio: false,
+      responsive: true
+    }
+    // Create pie or douhnut chart
+    // You can switch between pie and douhnut using the method below.
+    // eslint-disable-next-line no-unused-vars
+    var pieChart = new Chart(pieChartCanvas, {
+      type: 'doughnut',
+      data: pieData,
+      options: pieOptions
+    })
+  
+    // Sales graph chart
+    var salesGraphChartCanvas = $('#line-chart').get(0).getContext('2d')
+    // $('#revenue-chart').get(0).getContext('2d');
+  
+    var salesGraphChartData = {
+      labels: ['2011 Q1', '2011 Q2', '2011 Q3', '2011 Q4', '2012 Q1', '2012 Q2', '2012 Q3', '2012 Q4', '2013 Q1', '2013 Q2'],
+      datasets: [
+        {
+          label: 'Digital Goods',
+          fill: false,
+          borderWidth: 2,
+          lineTension: 0,
+          spanGaps: true,
+          borderColor: '#efefef',
+          pointRadius: 3,
+          pointHoverRadius: 7,
+          pointColor: '#efefef',
+          pointBackgroundColor: '#efefef',
+          data: [2666, 2778, 4912, 3767, 6810, 5670, 4820, 15073, 10687, 8432]
+        }
+      ]
+    }
+  
+    var salesGraphChartOptions = {
+      maintainAspectRatio: false,
+      responsive: true,
+      legend: {
+        display: false
+      },
+      scales: {
+        xAxes: [{
+          ticks: {
+            fontColor: '#efefef'
+          },
+          gridLines: {
+            display: false,
+            color: '#efefef',
+            drawBorder: false
+          }
+        }],
+        yAxes: [{
+          ticks: {
+            stepSize: 5000,
+            fontColor: '#efefef'
+          },
+          gridLines: {
+            display: true,
+            color: '#efefef',
+            drawBorder: false
+          }
+        }]
+      }
+    }
+  
+    // This will get the first returned node in the jQuery collection.
+    // eslint-disable-next-line no-unused-vars
+    var salesGraphChart = new Chart(salesGraphChartCanvas, {
+      type: 'line',
+      data: salesGraphChartData,
+      options: salesGraphChartOptions
+    })
+  })
+</script>
 
   {% endblock javascripts %}
