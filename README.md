@@ -1,6 +1,10 @@
 ## About IRIS Pyhon Apps Application
 IRIS Dashboard build by using Python Flask web framework.
 
+## Application Layout
+![image](https://user-images.githubusercontent.com/18219467/154982541-8c5bfa58-5e76-42cd-9e6d-971e4d91852e.png)
+
+
 ## Installation
 1. Clone/git pull the repo into any local directory
 
