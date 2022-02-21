@@ -28,7 +28,8 @@ def processes():
     my_cols=[{"title": str(col)} for col in json.loads(df.to_json(orient="split"))["columns"]]   
     ftitle = "Processes"
     fheading = "Currently runnung processes"
-    return render_template('tablesdata.html',  ftitle = ftitle, fheading = fheading, my_data = my_data, my_cols = my_cols)    
+    content = util.get_sidebar_stats()
+    return render_template('tablesdata.html',  ftitle = ftitle, fheading = fheading, my_data = my_data, my_cols = my_cols, content = content)    
 
 @app.route("/messages")
 def messages():
@@ -39,7 +40,8 @@ def messages():
     my_cols=[{"title": str(col)} for col in json.loads(df.to_json(orient="split"))["columns"]]
     ftitle = "Messages"
     fheading = "Production Messages"
-    return render_template('tablesdata.html',  ftitle = ftitle, fheading = fheading, my_data = my_data, my_cols = my_cols)    
+    content = util.get_sidebar_stats()
+    return render_template('tablesdata.html',  ftitle = ftitle, fheading = fheading, my_data = my_data, my_cols = my_cols, content = content)        
    
 @app.route("/securityusers")
 def securityusers():
@@ -50,7 +52,8 @@ def securityusers():
     my_cols=[{"title": str(col)} for col in json.loads(df.to_json(orient="split"))["columns"]]
     ftitle = "Users"
     fheading = "Security Users"
-    return render_template('tablesdata.html',  ftitle = ftitle, fheading = fheading, my_data = my_data, my_cols = my_cols)    
+    content = util.get_sidebar_stats()
+    return render_template('tablesdata.html',  ftitle = ftitle, fheading = fheading, my_data = my_data, my_cols = my_cols, content = content)        
 
 @app.route("/securityapps")
 def securityapps():
@@ -61,7 +64,8 @@ def securityapps():
     my_cols=[{"title": str(col)} for col in json.loads(df.to_json(orient="split"))["columns"]]
     ftitle = "Applications"
     fheading = "Created Applications"
-    return render_template('tablesdata.html',  ftitle = ftitle, fheading = fheading, my_data = my_data, my_cols = my_cols)    
+    content = util.get_sidebar_stats()
+    return render_template('tablesdata.html',  ftitle = ftitle, fheading = fheading, my_data = my_data, my_cols = my_cols, content = content)        
 
 @app.route("/elassert")
 def elassert():
@@ -72,7 +76,8 @@ def elassert():
     my_cols=[{"title": str(col)} for col in json.loads(df.to_json(orient="split"))["columns"]]
     ftitle = "Assert"
     fheading = "Event Log Assert"
-    return render_template('tablesdata.html',  ftitle = ftitle, fheading = fheading, my_data = my_data, my_cols = my_cols)    
+    content = util.get_sidebar_stats()
+    return render_template('tablesdata.html',  ftitle = ftitle, fheading = fheading, my_data = my_data, my_cols = my_cols, content = content)        
 
 @app.route("/elerror")
 def elerror():
@@ -83,7 +88,8 @@ def elerror():
     my_cols=[{"title": str(col)} for col in json.loads(df.to_json(orient="split"))["columns"]]
     ftitle = "Error"
     fheading = "Event Log Error"
-    return render_template('tablesdata.html',  ftitle = ftitle, fheading = fheading, my_data = my_data, my_cols = my_cols)    
+    content = util.get_sidebar_stats()
+    return render_template('tablesdata.html',  ftitle = ftitle, fheading = fheading, my_data = my_data, my_cols = my_cols, content = content)        
 
 @app.route("/elwarning")
 def elwarning():
@@ -93,7 +99,8 @@ def elwarning():
     my_cols=[{"title": str(col)} for col in json.loads(df.to_json(orient="split"))["columns"]]
     ftitle = "Warning"
     fheading = "Event Log Warning"
-    return render_template('tablesdata.html',  ftitle = ftitle, fheading = fheading, my_data = my_data, my_cols = my_cols)    
+    content = util.get_sidebar_stats()
+    return render_template('tablesdata.html',  ftitle = ftitle, fheading = fheading, my_data = my_data, my_cols = my_cols, content = content)        
     
 @app.route("/elinfo")
 def elinfo():
@@ -103,7 +110,8 @@ def elinfo():
     my_cols=[{"title": str(col)} for col in json.loads(df.to_json(orient="split"))["columns"]]
     ftitle = "Info"
     fheading = "Event Log Info"
-    return render_template('tablesdata.html',  ftitle = ftitle, fheading = fheading, my_data = my_data, my_cols = my_cols)    
+    content = util.get_sidebar_stats()
+    return render_template('tablesdata.html',  ftitle = ftitle, fheading = fheading, my_data = my_data, my_cols = my_cols, content = content)       
 
 @app.route("/eltrace")
 def eltrace():
@@ -113,7 +121,8 @@ def eltrace():
     my_cols=[{"title": str(col)} for col in json.loads(df.to_json(orient="split"))["columns"]]
     ftitle = "Trace"
     fheading = "Event Log Trace"
-    return render_template('tablesdata.html',  ftitle = ftitle, fheading = fheading, my_data = my_data, my_cols = my_cols)    
+    content = util.get_sidebar_stats()
+    return render_template('tablesdata.html',  ftitle = ftitle, fheading = fheading, my_data = my_data, my_cols = my_cols, content = content)        
 
 @app.route("/elevent")
 def elevent():
@@ -123,7 +132,8 @@ def elevent():
     my_cols=[{"title": str(col)} for col in json.loads(df.to_json(orient="split"))["columns"]]
     ftitle = "Alert"
     fheading = "Event Log Alert"
-    return render_template('tablesdata.html',  ftitle = ftitle, fheading = fheading, my_data = my_data, my_cols = my_cols)    
+    content = util.get_sidebar_stats()
+    return render_template('tablesdata.html',  ftitle = ftitle, fheading = fheading, my_data = my_data, my_cols = my_cols, content = content)        
 
 
 # GET all passengers

@@ -1,10 +1,10 @@
 import iris
-
+#get sql statements based passed id
 def get_sql_stat( id ):
 	if id == 'processes':
 		statement = '''
         SELECT ID, NameSpace, Routine, LinesExecuted, GlobalReferences, 
-               state, PidExternal, UserName, ClientIPAddress FROM %SYS.ProcessQuery        
+               state, PidExternal, UserName, ClientIPAddress FROM %SYS.ProcessQuery ORDER BY NameSpace desc        
         '''
 	elif id == 'messages':
 		statement = '''
@@ -41,7 +41,7 @@ def get_sql_stat( id ):
 		ORDER BY SessionId DESC '''   
 	elif id == 'securityusers':
 		statement =  '''SELECT 
-		ID, AccountNeverExpires, AutheEnabled, ChangePassword, {fn LEFT(%EXTERNAL(CreateDateTime),10 )} AS DateCreated, Enabled, ExpirationDate, Flags, Name
+		ID, AccountNeverExpires, AutheEnabled, ChangePassword, CreateDateTime AS DateCreated, Enabled, ExpirationDate, Flags, Name
 		FROM Security.Users'''
 	elif id == 'securityapps':
 		statement =  '''SELECT 
@@ -164,6 +164,72 @@ def get_dashboard_stats( ):
 		'tot_ev_trace' : tot_ev_trace,
 		'tot_ev_alert' : tot_ev_alert
 
+		}
+
+	return content
+
+#Get sidebar statistics
+def get_sidebar_stats( ):
+	iris.cls("Embedded.Utils").SetNameSpace("%SYS")
+
+	statement = iris.sql.exec('SELECT count(*) as tot FROM Security.Users')
+	df = statement.dataframe()
+	tot_usr = df.iloc[0]['tot']
+
+	statement = iris.sql.exec('SELECT count(*) as tot FROM Security.Applications')
+	df = statement.dataframe()
+	tot_apps = df.iloc[0]['tot']
+
+	iris.cls("Embedded.Utils").SetNameSpace("USER")
+	#Get total processes
+	statement = iris.sql.exec('SELECT count(*) as tot FROM %SYS.ProcessQuery')
+	df = statement.dataframe()
+	tot_pro = df.iloc[0]['tot']
+
+	statement = iris.sql.exec('SELECT count(*) as tot FROM Ens.MessageHeader')
+	df = statement.dataframe()
+	tot_msg = df.iloc[0]['tot']
+	
+	statement = iris.sql.exec('SELECT count(*) as tot FROM Ens_Util.Log')
+	df = statement.dataframe()
+	tot_ev = df.iloc[0]['tot']
+
+	statement = iris.sql.exec('SELECT count(*) as tot FROM Ens_Util.Log where type = 1')
+	df = statement.dataframe()
+	tot_ev_assert = int(df.iloc[0]['tot'])
+	
+	statement = iris.sql.exec('SELECT count(*) as tot FROM Ens_Util.Log where type = 2')
+	df = statement.dataframe()
+	tot_ev_error = int(df.iloc[0]['tot'])
+	
+	statement = iris.sql.exec('SELECT count(*) as tot FROM Ens_Util.Log where type = 3')
+	df = statement.dataframe()
+	tot_ev_warning = int(df.iloc[0]['tot'])
+	
+	statement = iris.sql.exec('SELECT count(*) as tot FROM Ens_Util.Log where type = 4')
+	df = statement.dataframe()
+	tot_ev_info= int(df.iloc[0]['tot'])
+	
+	statement = iris.sql.exec('SELECT count(*) as tot FROM Ens_Util.Log where type = 5')
+	df = statement.dataframe()
+	tot_ev_trace = int(df.iloc[0]['tot'])
+	
+	statement = iris.sql.exec('SELECT count(*) as tot FROM Ens_Util.Log where type = 6')
+	df = statement.dataframe()
+	tot_ev_alert = int(df.iloc[0]['tot'])
+
+	content = {	
+		'tot_pro'	: tot_pro,
+		'tot_msg'	: tot_msg,
+		'tot_usr'	: tot_usr,
+		'tot_apps'	: tot_apps,
+		'tot_ev' : tot_ev,
+		'tot_ev_assert' : tot_ev_assert,
+		'tot_ev_error' : tot_ev_error,
+		'tot_ev_warning' : tot_ev_warning,
+		'tot_ev_info' : tot_ev_info,
+		'tot_ev_trace' : tot_ev_trace,
+		'tot_ev_alert' : tot_ev_alert
 		}
 
 	return content
