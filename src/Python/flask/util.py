@@ -8,7 +8,7 @@ def get_sql_stat( id ):
         '''
 	elif id == 'messages':
 		statement = '''
-        SELECT TOP 250 
+        SELECT 
 		ID, 
 		Banked, 
 		BusinessProcessId, 
@@ -47,15 +47,18 @@ def get_sql_stat( id ):
 		statement =  '''SELECT 
 		ID, AutheEnabled, AutoCompile, CSPZENEnabled, CSRFToken, CookiePath, DeepSeeEnabled, Description, DispatchClass, Enabled, Name, NameLowerCase, NameSpace
 		FROM Security.Applications'''            
-	elif id == 'elinfo':
-		statement = "SELECT id, configname,job,messageid,sessionid,sourceclass,	sourcemethod,text,timelogged FROM Ens_Util.Log where type = 4"
-	elif id == 'elalert':
-		statement = "SELECT id, configname,job,messageid,sessionid,sourceclass,	sourcemethod,text,timelogged FROM Ens_Util.Log where type = 6"
+	elif id == 'elassert':
+		statement = "SELECT id, configname,job,messageid,sessionid,sourceclass,	sourcemethod,text,timelogged FROM Ens_Util.Log where type = 1"
+	elif id == 'elerror':
+		statement = "SELECT id, configname,job,messageid,sessionid,sourceclass,	sourcemethod,text,timelogged FROM Ens_Util.Log where type = 2"
 	elif id == 'elwarning':
 		statement = "SELECT id, configname,job,messageid,sessionid,sourceclass,	sourcemethod,text,timelogged FROM Ens_Util.Log where type = 3"
-	elif id == 'elError':
-		statement = "SELECT id, configname,job,messageid,sessionid,sourceclass,	sourcemethod,text,timelogged FROM Ens_Util.Log where type = 2"
-	
+	elif id == 'elinfo':
+		statement = "SELECT id, configname,job,messageid,sessionid,sourceclass,	sourcemethod,text,timelogged FROM Ens_Util.Log where type = 4"
+	elif id == 'eltrace':
+		statement = "SELECT id, configname,job,messageid,sessionid,sourceclass,	sourcemethod,text,timelogged FROM Ens_Util.Log where type = 5"
+	elif id == 'elalert':
+		statement = "SELECT id, configname,job,messageid,sessionid,sourceclass,	sourcemethod,text,timelogged FROM Ens_Util.Log where type = 6"
 	
 	return statement	
 
@@ -63,7 +66,59 @@ def get_sql_stat( id ):
 def get_dashboard_stats( ):
 	iris.cls("Embedded.Utils").SetNameSpace("%SYS")
 	ref = iris.cls("SYS.Stats.Dashboard").Sample()
+
+	statement = iris.sql.exec('SELECT count(*) as tot FROM Security.Users')
+	df = statement.dataframe()
+	tot_usr = df.iloc[0]['tot']
+
+	statement = iris.sql.exec('SELECT count(*) as tot FROM Security.Applications')
+	df = statement.dataframe()
+	tot_apps = df.iloc[0]['tot']
+
+	iris.cls("Embedded.Utils").SetNameSpace("USER")
+	#Get total processes
+	statement = iris.sql.exec('SELECT count(*) as tot FROM %SYS.ProcessQuery')
+	df = statement.dataframe()
+	tot_pro = df.iloc[0]['tot']
+
+	statement = iris.sql.exec('SELECT count(*) as tot FROM Ens.MessageHeader')
+	df = statement.dataframe()
+	tot_msg = df.iloc[0]['tot']
 	
+	statement = iris.sql.exec('SELECT count(*) as tot FROM Ens_Util.Log')
+	df = statement.dataframe()
+	tot_ev = df.iloc[0]['tot']
+
+	statement = iris.sql.exec('SELECT count(*) as tot FROM Ens_Util.Log where type = 1')
+	df = statement.dataframe()
+	tot_ev_assert = int(df.iloc[0]['tot'])
+	
+	statement = iris.sql.exec('SELECT count(*) as tot FROM Ens_Util.Log where type = 2')
+	df = statement.dataframe()
+	tot_ev_error = int(df.iloc[0]['tot'])
+	
+	statement = iris.sql.exec('SELECT count(*) as tot FROM Ens_Util.Log where type = 3')
+	df = statement.dataframe()
+	tot_ev_warning = int(df.iloc[0]['tot'])
+	
+	statement = iris.sql.exec('SELECT count(*) as tot FROM Ens_Util.Log where type = 4')
+	df = statement.dataframe()
+	tot_ev_info= int(df.iloc[0]['tot'])
+	
+	statement = iris.sql.exec('SELECT count(*) as tot FROM Ens_Util.Log where type = 5')
+	df = statement.dataframe()
+	tot_ev_trace = int(df.iloc[0]['tot'])
+	
+	statement = iris.sql.exec('SELECT count(*) as tot FROM Ens_Util.Log where type = 6')
+	df = statement.dataframe()
+	tot_ev_alert = int(df.iloc[0]['tot'])
+
+	last_backup = ref.LastBackup
+	
+	#check if variable is empty
+	if not last_backup:
+		last_backup = "Never"
+
 	content = {
 		'ApplicationErrors':ref.ApplicationErrors,
 		'CSPSessions':ref.CSPSessions,
@@ -81,7 +136,7 @@ def get_dashboard_stats( ):
 		'JournalEntries' : ref.JournalEntries,
 		'JournalSpace' : ref.JournalSpace,
 		'JournalStatus' : ref.JournalStatus,
-		'LastBackup' : ref.LastBackup,
+		'LastBackup' : last_backup,
 		'LicenseCurrent' : ref.LicenseCurrent,
 		'LicenseCurrentPct' : ref.LicenseCurrentPct,
 		'LicenseHigh' : ref.LicenseHigh,
@@ -96,7 +151,19 @@ def get_dashboard_stats( ):
 		'ShadowServer' : ref.ShadowServer,
 		'ShadowSource' : ref.ShadowSource,
 		'SystemUpTime' : ref.SystemUpTime,
-		'WriteDaemon' :  ref.WriteDaemon	
+		'WriteDaemon' :  ref.WriteDaemon,
+		'tot_pro'	: tot_pro,
+		'tot_msg'	: tot_msg,
+		'tot_usr'	: tot_usr,
+		'tot_apps'	: tot_apps,
+		'tot_ev' : tot_ev,
+		'tot_ev_assert' : tot_ev_assert,
+		'tot_ev_error' : tot_ev_error,
+		'tot_ev_warning' : tot_ev_warning,
+		'tot_ev_info' : tot_ev_info,
+		'tot_ev_trace' : tot_ev_trace,
+		'tot_ev_alert' : tot_ev_alert
+
 		}
 
 	return content
