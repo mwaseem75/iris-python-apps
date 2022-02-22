@@ -15,6 +15,15 @@ Application also demonostrates some of the Python funtionality like Data Science
 ![image](https://user-images.githubusercontent.com/18219467/155088531-ccf33a2d-f7e5-4d2e-b2be-089595a101d5.png)
 #### Plotting with Python matplotlib library
 ![image](https://user-images.githubusercontent.com/18219467/155135340-93a791cc-e193-47de-bbf5-645c9968bc7a.png)
+#### Inroduction to Data Science by using jupyter Notebook
+![image](https://user-images.githubusercontent.com/18219467/155152427-1eb17fe1-47f5-494a-b18b-287c9b188d45.png)
+#### Dataploting by using python matplotlob Library
+![image](https://user-images.githubusercontent.com/18219467/155152819-f6874b0d-94bd-47fa-b82f-498ebd6c6120.png)
+#### Inroduction to Data Science by using jupyter Notebook
+![image](https://user-images.githubusercontent.com/18219467/155154309-7b99f442-6240-481f-bee6-4dbd62309c2e.png)
+#### QR Code generation with Python
+![image](https://user-images.githubusercontent.com/18219467/155153417-f8aaea5b-1cfd-4ea8-af4e-f70c8a5ccff8.png)
+
 
 ## Recommendation 
  * Read related documentations [Embedded Python Overview](https://docs.intersystems.com/iris20212/csp/docbook/DocBook.UI.Page.cls?KEY=AFL_epython).
