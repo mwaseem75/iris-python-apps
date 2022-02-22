@@ -10,9 +10,9 @@ Application also demonostrates some of the Python funtionality like Data Science
 * QR Code generator from python.
 ## Application Layout
 #### Dashboard
-![image](https://user-images.githubusercontent.com/18219467/155088357-86a81518-fe6d-4bfc-87d8-c957e32fb6a1.png)
+![image](https://user-images.githubusercontent.com/18219467/155213244-803fecb4-5c76-4805-9bb0-ca5a11411129.png)
 #### Tables Data
-![image](https://user-images.githubusercontent.com/18219467/155088531-ccf33a2d-f7e5-4d2e-b2be-089595a101d5.png)
+![image](https://user-images.githubusercontent.com/18219467/155213360-2662ec39-c4ad-487f-819a-8956b56130fc.png)
 #### Plotting with Python matplotlib library
 ![image](https://user-images.githubusercontent.com/18219467/155135340-93a791cc-e193-47de-bbf5-645c9968bc7a.png)
 #### Inroduction to Data Science by using jupyter Notebook
