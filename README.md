@@ -8,6 +8,11 @@ IRIS Dashboard build by using Python Flask web framework.
 ![image](https://user-images.githubusercontent.com/18219467/155088531-ccf33a2d-f7e5-4d2e-b2be-089595a101d5.png)
 
 
+#### Plotting with Python matplotlib library
+![image](https://user-images.githubusercontent.com/18219467/155135340-93a791cc-e193-47de-bbf5-645c9968bc7a.png)
+
+
+
 
 ## Installation
 1. Clone/git pull the repo into any local directory
