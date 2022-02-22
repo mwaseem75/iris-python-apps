@@ -15,9 +15,9 @@ def index():
     content = util.get_dashboard_stats()
     return render_template('index.html', content = content)
 
-@app.route("/qrcode")
-def qrcode():
-    return render_template('qrcode.html')
+@app.route("/notebook")
+def notebook():
+    return render_template('notebook.html')    
     
 @app.route("/processes")
 def processes():
