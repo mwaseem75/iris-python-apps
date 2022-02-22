@@ -2,7 +2,11 @@
 IRIS Dashboard build by using Python Flask web framework.
 
 ## Application Layout
-![image](https://user-images.githubusercontent.com/18219467/154982541-8c5bfa58-5e76-42cd-9e6d-971e4d91852e.png)
+#### Dashboard
+![image](https://user-images.githubusercontent.com/18219467/155088357-86a81518-fe6d-4bfc-87d8-c957e32fb6a1.png)
+#### Tables Data
+![image](https://user-images.githubusercontent.com/18219467/155088531-ccf33a2d-f7e5-4d2e-b2be-089595a101d5.png)
+
 
 
 ## Installation
