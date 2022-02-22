@@ -1,6 +1,7 @@
 ## Summary
 IRIS Dashboard build by using embedded python with the help of [**Python Flask Web Framework**](https://flask.palletsprojects.com/). 
-Application also demonostrates some of the Python funtionality like Data Science, Data Plotting, Data Visualizaion and QR Code generation. 
+Application also demonstrates some of the Python functionality like Data Science, Data Plotting, Data Visualization and QR Code generation.
+
 ## Features
 * Resposive bootstrap IRIS Dasboard.
 * View dashboard details along with interoperability events log and messages.
