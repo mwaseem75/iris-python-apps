@@ -41,11 +41,12 @@
               <div class="card-body">
                                
                 <h2>Random data with num_x_points={{ num_x_points }}</h2>
-                <form method=get action="/notebook">
+                <form method=get action="/matplot">
                   <input name="num_x_points" type=number value={{ num_x_points }} />
                   <input type=submit value="update graph">
                 </form>
-               
+                <br><br>
+               <p> System will generate Range data against the porvided number and plot the result here</p>
                 <img src="/matplot-as-image-{{ num_x_points }}.png"
                     alt="random points as png"
                     height="300"

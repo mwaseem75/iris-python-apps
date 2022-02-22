@@ -1,7 +1,13 @@
-from flask import Flask, jsonify, request, make_response, render_template
+from flask import Flask, jsonify, Response, request, make_response, render_template
 from definitions.passenger import Passenger
-import json,util
+import json,util,io,random
 import iris
+from matplotlib.backends.backend_agg import FigureCanvasAgg
+from matplotlib.backends.backend_svg import FigureCanvasSVG
+
+from matplotlib.figure import Figure
+
+
 
 app = Flask(__name__) 
 app.secret_key = "abc222"
@@ -15,9 +21,10 @@ def index():
     content = util.get_dashboard_stats()
     return render_template('index.html', content = content)
 
-@app.route("/notebook")
+@app.route("/notebookkk")
 def notebook():
-    return render_template('notebook.html')    
+    content = util.get_sidebar_stats()
+    return render_template('notebook.html',content = content)    
     
 @app.route("/processes")
 def processes():
@@ -318,7 +325,27 @@ def getP():
     payload['query'] = query
     return jsonify(payload)
 
+@app.route("/matplot")
+def matplot():
+    """ Returns html with the img tag for your plot.
+    """
+    content = util.get_sidebar_stats()
+    num_x_points = int(request.args.get("num_x_points", 50))
+    
+    return render_template('matplot.html', content = content, num_x_points = num_x_points)   
 
+@app.route("/matplot-as-image-<int:num_x_points>.png")
+def plot_png(num_x_points=50):
+    """ renders the plot on the fly.
+    """
+    fig = Figure()
+    axis = fig.add_subplot(1, 1, 1)
+    x_points = range(num_x_points)
+    axis.plot(x_points, [random.randint(1, 30) for x in x_points])
+
+    output = io.BytesIO()
+    FigureCanvasAgg(fig).print_png(output)
+    return Response(output.getvalue(), mimetype="image/png")
 
 # ----------------------------------------------------------------
 ### MAIN PROGRAM
