@@ -1510,7 +1510,7 @@
     _proto.search = function search() {
       var _this2 = this;
 
-      var searchValue = $__default(SELECTOR_SEARCH_INPUT).val().toLowerCase();
+      var searchValue = $__default(SELECTOR_SEARCH_INPUT).val();
 
       if (searchValue.length < this.options.minLength) {
         $__default(SELECTOR_SEARCH_RESULTS_GROUP).empty();
@@ -1597,7 +1597,7 @@
       path = path.join(" " + this.options.arrowSign + " ");
 
       if (this.options.highlightName || this.options.highlightPath) {
-        var searchValue = $__default(SELECTOR_SEARCH_INPUT).val().toLowerCase();
+        var searchValue = $__default(SELECTOR_SEARCH_INPUT).val();
         var regExp = new RegExp(searchValue, 'gi');
 
         if (this.options.highlightName) {
