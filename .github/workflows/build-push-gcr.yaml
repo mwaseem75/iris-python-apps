@@ -7,7 +7,7 @@ on:
     - main
 
 env:
-  # Change this section according to your needs
+  # Change this section according to your need
   IMAGE_NAME:   irispyapps
   SERVICE:      irispyapps
   DOMAIN_NAME:  irispyapps.demo.community.intersystems.com
