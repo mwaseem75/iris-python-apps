@@ -7,8 +7,6 @@ from matplotlib.backends.backend_svg import FigureCanvasSVG
 
 from matplotlib.figure import Figure
 
-
-
 app = Flask(__name__) 
 app.secret_key = "abc222"
 
@@ -17,15 +15,10 @@ app.secret_key = "abc222"
 # ----------------------------------------------------------------
 @app.route("/")
 def index():
-    
     content = util.get_dashboard_stats()
     return render_template('index.html', content = content)
 
-@app.route("/notebookkk")
-def notebook():
-    content = util.get_sidebar_stats()
-    return render_template('notebook.html',content = content)    
-    
+  
 @app.route("/processes")
 def processes():
     iris.cls("Embedded.Utils").SetNameSpace("USER")
