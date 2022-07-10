@@ -25,7 +25,6 @@ Application also demonstrates some of the Python functionality like Data Science
 #### QR Code generation with Python
 ![image](https://user-images.githubusercontent.com/18219467/155153417-f8aaea5b-1cfd-4ea8-af4e-f70c8a5ccff8.png)
 
-
 ## Recommendation 
  * Read related documentations [Embedded Python Overview](https://docs.intersystems.com/iris20212/csp/docbook/DocBook.UI.Page.cls?KEY=AFL_epython).
 
