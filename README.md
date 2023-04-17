@@ -50,6 +50,6 @@ docker-compose up -d
 To run the application Navigate to http://localhost:4040 
 
 ## Credits
-This application is derived from the below iris-python-examples template by @Guillaume Rongier 
-https://openexchange.intersystems.com/package/iris-python-examples
+This application is derived from the [isc-cloud-sql-python-demo](https://openexchange.intersystems.com/package/isc-cloud-sql-python-demo) template by @Evgeny Shvarov
+
 
